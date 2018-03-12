@@ -1,0 +1,9 @@
+h1{
+	text-align: center;
+}
+.form-horizontal{
+	margin: 0 auto;
+}
+body{
+	background: url(../img/fondo-registro.jpeg) no-repeat center ;
+}
