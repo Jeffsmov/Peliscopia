@@ -63,7 +63,7 @@ header h1{
 	margin-top: 20%;
 }
 .centrado{
-	margin: 40px 0;
+	margin: 20px 0;
 	text-align: center;
 }
 img{
@@ -81,14 +81,6 @@ img{
 	height: 400px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
+.img-logo{
+	max-width: 30px;
+}
