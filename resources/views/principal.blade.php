@@ -4,7 +4,7 @@
 	<title>Peliscopia</title>
 	<meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/landingstyle.css">
+    <link rel="stylesheet" type="text/css" href="css/landingstyle_2.css">
     <script type="text/javascript" src="js/jquery.js"></script>
 </head>
 <body>

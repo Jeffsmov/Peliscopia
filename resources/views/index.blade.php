@@ -126,15 +126,15 @@
                   <div class="carousel-inner centrado" role="listbox">
                         <div class="item active">
                           <h3>Star Wars</h3>
-                          <img src="img/1.jpeg" alt="...">
+                          <img class="img-item" src="img/1.jpeg" alt="...">
                         </div>
                         <div class="item">
                           <h3>Scott Pilgrim</h3>
-                          <img src="img/4.jpg" alt="...">
+                          <img class="img-item" src="img/4.jpg" alt="...">
                         </div>
                         <div class="item">
                           <h3>My Little Pony</h3>
-                          <img src="img/5.jpg" alt="...">
+                          <img class="img-item" src="img/5.jpg" alt="...">
                         </div>
                   </div>
                 </div>
