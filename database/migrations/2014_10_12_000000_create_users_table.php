@@ -27,6 +27,12 @@ class CreateUsersTable extends Migration
 		DB::statement("ALTER TABLE user ADD ftPerfil MEDIUMBLOB null");
 		DB::statement("ALTER TABLE user ADD bio MEDIUMTEXT null");
 		
+        Schema::create('pais',function(Blueprint $table){
+            $table->increments('id');
+            $table->string('nombre');
+            $table->timestamps();
+        });
+        
     }
 
     /**
@@ -37,5 +43,6 @@ class CreateUsersTable extends Migration
     public function down()
     {
         Schema::dropIfExists('user');
+        Schema::dropIfExists('pais');
     }
 }

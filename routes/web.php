@@ -12,5 +12,21 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
+});
+
+Route::get('/registro', function () {
+    return view('registro');
+});
+
+Route::get('/login', function () {
+    return view('login');
+});
+
+Route::get('/perfil', function () {
+    return view('perfil');
+});
+
+Route::get('/principal', function () {
+    return view('principal');
 });

@@ -62,7 +62,7 @@ class DatabaseSeeder extends Seeder
 		['idPais' => 47	, 'nombre' => 'Congo, Repub. of the'                ],
 		['idPais' => 48	, 'nombre' => 'Cook Islands'                        ],
 		['idPais' => 49	, 'nombre' => 'Costa Rica'                          ],
-		['idPais' => 50	, 'nombre' => 'Cote d'Ivoire'                       ],
+		['idPais' => 50	, 'nombre' => 'Cote d Ivoire'                       ],
 		['idPais' => 51	, 'nombre' => 'Croatia'                             ],
 		['idPais' => 52	, 'nombre' => 'Cuba'                                ],
 		['idPais' => 53	, 'nombre' => 'Cyprus'                              ],
