@@ -3,12 +3,13 @@
 <head>
 	<title>Registro</title>
 	<meta charset="utf-8">
-	 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	 <link rel="stylesheet" type="text/css" href="css/registrostyle.css">
+ 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+ 	<link rel="stylesheet" type="text/css" href="css/registrostyle.css">
 </head>
-<body>
+<body class="registro">
 
-    <!-- Barra Navegacion -->
+<!-- Barra Navegacion -->
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
@@ -18,25 +19,59 @@
                     <span class="icon-bar"></span>
                 </button>
 
-                <a href="/"><img class="img-responsive img-logo navbar-left" src="img/logo[W].png"></a>
-
+                <a href="/"><img class="img-responsive img-logo navbar-left hidden-xs" src="img/logo[W].png"></a>
                 <a href="/" class="navbar-brand"><strong>PELISCOPIA</strong></a>
 
             </div>
             <div class="navbar-collapse collapse">
                  <ul class="nav navbar-nav">
                     <li><a href="registro">Registrate</a></li>
-                    <li><a href="">Iniciar Sesion</a></li>
+                    <li><a href="#login" data-toggle="modal">Iniciar Sesion</a></li>
                  </ul>
             </div>
 
         </div>
     </nav>
+<!-- Fin Barra Navegacion -->
 
+<!-- Inicio Modal Login -->
+    <div class="modal fade" id="login">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button tyle="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title title-login">Login</h4>
+
+                    <div class="modal-body">
+
+                        <!-- Inicio Login -->                  
+                        
+                        <form action="/action.php" method="post" id="formLogin">
+                        <div class="form-group">
+                            <input name="email" type="mail" class="form-control" id="formGroupExampleInput2" placeholder="Correo">
+                        </div>
+                        <div class="form-group">
+                            <input name="pass" type="password" class="form-control" id="formGroupExampleInput2" placeholder="Contraseña">
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-aceptar btn-block" id="btnLogin">Ingresar</button>
+                        </div>
+                        </form>
+
+                        <!-- Fin Login -->
+
+                    </div>
+
+                </div>              
+            </div>          
+        </div>
+    </div>
+<!-- Fin Modal Login -->
     
+<!-- Inicio Main -->
 	<div class="container center-block main">
 		<header>
-			<h1 class="registro-text">Registrate</h1>
+			<h1 class="registro-text text-center">Registrate</h1>
 			<div class="row">
 				<label class="text-center col-sm-12">Es gratis</label>
 			</div>
@@ -89,11 +124,9 @@
 					</div>
 
 				</div>
-
-
-
 			</form>
 	</div>
+<!-- Fin Main -->
 
 	<script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>

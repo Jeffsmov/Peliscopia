@@ -19,14 +19,24 @@ Route::get('/registro', function () {
     return view('registro');
 });
 
-Route::get('/login', function () {
-    return view('login');
-});
-
 Route::get('/perfil', function () {
     return view('perfil');
 });
 
 Route::get('/principal', function () {
     return view('principal');
+});
+
+Route::get('/reseña', function () {
+    return view('reseña');
+});
+
+
+
+Route::get('/principal_2', function () {
+    return view('principal_2');
+});
+
+Route::get('/perfil_2', function () {
+    return view('perfil_2');
 });

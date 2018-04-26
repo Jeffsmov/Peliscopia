@@ -4,11 +4,12 @@
     <title> Peliscopia </title>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/landingstyle.css">
 </head>
 <body>
         
-    <!-- Barra Navegacion -->
+<!-- Barra Navegacion -->
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
@@ -18,21 +19,54 @@
                     <span class="icon-bar"></span>
                 </button>
 
-                <a href="/"><img class="img-responsive img-logo navbar-left" src="img/logo[W].png"></a>
-
+                <a href="/"><img class="img-responsive img-logo navbar-left hidden-xs" src="img/logo[W].png"></a>
                 <a href="/" class="navbar-brand"><strong>PELISCOPIA</strong></a>
 
             </div>
             <div class="navbar-collapse collapse">
                  <ul class="nav navbar-nav">
                     <li><a href="registro">Registrate</a></li>
-                    <li><a href="">Iniciar Sesion</a></li>
+                    <li><a href="#login" data-toggle="modal">Iniciar Sesion</a></li>
                  </ul>
             </div>
 
         </div>
     </nav>
 <!-- Fin Barra Navegacion -->
+
+<!-- Inicio Modal Login -->
+    <div class="modal fade" id="login">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button tyle="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title title-login">Login</h4>
+
+                    <div class="modal-body">
+
+                        <!-- Inicio Login -->                  
+                        
+                        <form action="/action.php" method="post" id="formLogin">
+                        <div class="form-group">
+                            <input name="email" type="mail" class="form-control" id="formGroupExampleInput2" placeholder="Correo">
+                        </div>
+                        <div class="form-group">
+                            <input name="pass" type="password" class="form-control" id="formGroupExampleInput2" placeholder="Contraseña">
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-aceptar btn-block" id="btnLogin">Ingresar</button>
+                        </div>
+                        </form>
+
+                        <!-- Fin Login -->
+
+                    </div>
+
+                </div>              
+            </div>          
+        </div>
+    </div>
+<!-- Fin Modal Login -->
 
 <!-- Header -->
     <header>
@@ -41,7 +75,6 @@
                 <div class="col-xs-12 col-sm-5 col-sm-offset-7">
                     <h1>Peliscopia: La mejor pagina de reseñas de peliculas</h1>
                 </div>
-                
             </div>
         </div>
     </header>
@@ -60,7 +93,7 @@
         <div class="row">
             <div class="centrado">
                 <div class="col-md-4 col-sm-4">
-                    <img class="img-circle" src="img/accion.png" width="140px">
+                    <img class="img-circle" src="img/accion_2.png" width="140px">
                     <h4>Accion</h4>
                 </div>
             </div>
@@ -100,47 +133,51 @@
                 </div>
             </div>
         </div>
-    <!-- Fin Primera seccion -->
-
+<!-- Fin Primera seccion -->
 
 <!-- Segunda seccion -->
-        <hr class="container">
+        <div class="hidden-xs">
 
-        <div class="container">
-            <div class="row centrado">
-                <div>
-                    <h1>Revive los mejores momentos del cine</h1>
+            <hr class="container">
+
+            <div class="container">
+                <div class="row centrado">
+                    <div>
+                        <h1>Revive los mejores momentos del cine</h1>
+                    </div>
+                </div>
+
+                <div class="row centrado">
+                    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                      <!-- Indicators -->
+                      <ol class="carousel-indicators">
+                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                      </ol>
+
+                      <!-- Wrapper for slides -->
+                      <div class="carousel-inner centrado" role="listbox">
+                            <div class="item active">
+                              <h3>Star Wars</h3>
+                              <img class="img-item" src="img/1.jpeg" alt="...">
+                            </div>
+                            <div class="item">
+                              <h3>Scott Pilgrim</h3>
+                              <img class="img-item" src="img/4.jpg" alt="...">
+                            </div>
+                            <div class="item">
+                              <h3>My Little Pony</h3>
+                              <img class="img-item" src="img/5.jpg" alt="...">
+                            </div>
+                      </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="row centrado">
-                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                  <!-- Indicators -->
-                  <ol class="carousel-indicators">
-                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                  </ol>
-
-                  <!-- Wrapper for slides -->
-                  <div class="carousel-inner centrado" role="listbox">
-                        <div class="item active">
-                          <h3>Star Wars</h3>
-                          <img class="img-item" src="img/1.jpeg" alt="...">
-                        </div>
-                        <div class="item">
-                          <h3>Scott Pilgrim</h3>
-                          <img class="img-item" src="img/4.jpg" alt="...">
-                        </div>
-                        <div class="item">
-                          <h3>My Little Pony</h3>
-                          <img class="img-item" src="img/5.jpg" alt="...">
-                        </div>
-                  </div>
-                </div>
-            </div>
         </div>
-          
+<!-- Fin Segunda seccion -->    
+
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
 

@@ -1,0 +1,105 @@
+body{
+ 	background:	#F0FFFF;
+ 	font-family: "Arial";
+ 	font-size: 16px;
+ 	color: #555;
+}
+
+h1,h2,h3,h4,h5{
+ 	font-weight: 300;
+ 	color: #5e0e0e;
+}
+
+h1{
+ 	font-size: 36px;
+ 	font-weight: bold;
+}
+
+/*
+h3{
+ 	color: #95a5a6
+}
+
+h4{
+ 	color: #95a5a6
+}
+*/
+
+p{
+ 	line-height: 30px;
+ 	margin-bottom: 25px;
+}
+
+hr{
+	display: block;
+	height: 1px;
+	border: 0;
+	border-top: 1px solid gray;
+	margin: 1em 0;
+	padding: 0;
+}
+
+.navbar-default{
+	background: rgba(0,0,0,0.8);
+	border-color: transparent; 
+}
+
+.navbar-default .navbar-brand{
+	color: white;
+}
+
+.navbar-default .navbar-nav li a, .navbar-default .navbar-nav li a:focus{
+	color: white;
+}
+
+.navbar-default .navbar-nav li a:hover{
+	color: #888;
+}
+
+.img-logo{
+	max-width: 30px;
+	margin: 5px;
+	margin-right: 10px;
+}
+
+.title-login{
+	color: gray;
+	padding-top: 10px;
+}
+
+.modal {
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) { 
+  .modal:before {
+    display: inline-block;
+    vertical-align: middle;
+    content: " ";
+    height: 100%;
+  }
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.modal-header{
+	border-bottom:0px;
+	padding-bottom:0px;
+}
+
+.btn-aceptar{
+	background-color: #5e0e0e;
+	color: white;
+}
+
+.btn-aceptar:focus{
+	color: white;
+}
+
+.btn-aceptar:hover{
+	color: gray;
+}

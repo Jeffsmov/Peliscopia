@@ -1,36 +1,35 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Login</title>
-	<meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="css/loginstyle.css">
-        <script type="text/javascript" src="js/jquery.js"></script>
-</head>
-<body>
+{{-- --}}
 
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-md-4 col-sm-4 col-xs-12"></div>
-			<div class="col-md-4 col-sm-4 col-xs-12">
-				
-				<form class="form-conatiner">
-				  <div class="form-group">
-				    <label for="exampleInputEmail1">Email address</label>
-				    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
-				  </div>
-				  <div class="form-group">
-				    <label for="exampleInputPassword1">Password</label>
-				    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-				  </div>
-				  <button type="submit" class="btn btn-success btn-block">Submit</button>
-				</form>
+<!-- Inicio Modal Login -->
+    <div class="modal fade" id="login">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button tyle="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title title-login">Login</h4>
 
-			</div>
-			
-		</div>
-		
-	</div>
+                    <div class="modal-body">
 
-</body>
-</html>
+                        <!-- Inicio Login -->                  
+                        
+                        <form action="/action.php" method="post" id="formLogin">
+                        <div class="form-group">
+                            <input name="email" type="mail" class="form-control" id="formGroupExampleInput2" placeholder="Correo">
+                        </div>
+                        <div class="form-group">
+                            <input name="pass" type="password" class="form-control" id="formGroupExampleInput2" placeholder="Contraseña">
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-aceptar btn-block" id="btnLogin">Ingresar</button>
+                        </div>
+                        </form>
+
+                        <!-- Fin Login -->
+
+                    </div>
+
+                </div>              
+            </div>          
+        </div>
+    </div>
+<!-- Fin Modal Login -->
