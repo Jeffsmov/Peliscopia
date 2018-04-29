@@ -3,9 +3,12 @@
 <head>
 	<title>Registro</title>
 	<meta charset="utf-8">
+    
  	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
  	<link rel="stylesheet" type="text/css" href="css/registrostyle.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body class="registro">
 
@@ -127,6 +130,12 @@
 			</form>
 	</div>
 <!-- Fin Main -->
+
+<!-- Footer -->
+    <footer class="container-fluid navbar-fixed-bottom footer text-center">
+        <span>Peliscopia &copy;</span>
+    </footer>
+<!-- Footer -->
 
 	<script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>

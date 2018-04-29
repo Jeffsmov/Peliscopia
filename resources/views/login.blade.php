@@ -1,4 +1,4 @@
-{{-- --}}
+{{-- Blade Login, for Landing and Sign-In page. I will use it eventually --}}
 
 <!-- Inicio Modal Login -->
     <div class="modal fade" id="login">
@@ -11,7 +11,8 @@
                     <div class="modal-body">
 
                         <!-- Inicio Login -->                  
-                        
+                        {{ csrf_field() }}
+
                         <form action="/action.php" method="post" id="formLogin">
                         <div class="form-group">
                             <input name="email" type="mail" class="form-control" id="formGroupExampleInput2" placeholder="Correo">

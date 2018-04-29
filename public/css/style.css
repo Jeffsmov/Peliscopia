@@ -15,16 +15,6 @@ h1{
  	font-weight: bold;
 }
 
-/*
-h3{
- 	color: #95a5a6
-}
-
-h4{
- 	color: #95a5a6
-}
-*/
-
 p{
  	line-height: 30px;
  	margin-bottom: 25px;
@@ -56,11 +46,43 @@ hr{
 	color: #888;
 }
 
+
+/* image logo */
 .img-logo{
 	max-width: 30px;
 	margin: 5px;
 	margin-right: 10px;
 }
+
+.nav > li > a > img.img-logo{
+	max-width: none;
+	max-height: 30px;
+	padding: 0px;
+	border-radius: 50%;
+}
+
+.nav > li > a > span.img-logo{
+	max-width: none;
+	max-height: 30px;
+	padding: 0px;
+}
+
+.nav > li > a.img-logo{
+	margin-bottom: 0px;
+	margin-right: 5px;
+	padding: 0px;
+	max-width: none;
+	height: 44px;
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+/*image logo*/
+
 
 .title-login{
 	color: gray;
@@ -103,3 +125,205 @@ hr{
 .btn-aceptar:hover{
 	color: gray;
 }
+
+.navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+}
+
+
+.row.content {
+	height: 450px;
+}
+
+.sidenav {
+    padding-top: 20px;
+    background-color: #f1f1f1;
+    height: 100%;
+}
+
+footer {
+    background: #050505e6;
+	border-color: transparent; 
+    color: white;
+}
+
+@media screen and (max-width: 767px) {
+	.sidenav {
+	    height: auto;
+	    padding: 15px;
+	}
+	.row.content {
+		height:auto;
+	} 
+}
+
+.more-reviews{
+	font-size: 10px;
+}
+
+/* bootstrap right offset */
+	.col-xs-offset-right-12 {
+	  margin-right: 100%;
+	}
+	.col-xs-offset-right-11 {
+	  margin-right: 91.66666667%;
+	}
+	.col-xs-offset-right-10 {
+	  margin-right: 83.33333333%;
+	}
+	.col-xs-offset-right-9 {
+	  margin-right: 75%;
+	}
+	.col-xs-offset-right-8 {
+	  margin-right: 66.66666667%;
+	}
+	.col-xs-offset-right-7 {
+	  margin-right: 58.33333333%;
+	}
+	.col-xs-offset-right-6 {
+	  margin-right: 50%;
+	}
+	.col-xs-offset-right-5 {
+	  margin-right: 41.66666667%;
+	}
+	.col-xs-offset-right-4 {
+	  margin-right: 33.33333333%;
+	}
+	.col-xs-offset-right-3 {
+	  margin-right: 25%;
+	}
+	.col-xs-offset-right-2 {
+	  margin-right: 16.66666667%;
+	}
+	.col-xs-offset-right-1 {
+	  margin-right: 8.33333333%;
+	}
+	.col-xs-offset-right-0 {
+	  margin-right: 0;
+	}
+	@media (min-width: 768px) {
+	  .col-sm-offset-right-12 {
+	    margin-right: 100%;
+	  }
+	  .col-sm-offset-right-11 {
+	    margin-right: 91.66666667%;
+	  }
+	  .col-sm-offset-right-10 {
+	    margin-right: 83.33333333%;
+	  }
+	  .col-sm-offset-right-9 {
+	    margin-right: 75%;
+	  }
+	  .col-sm-offset-right-8 {
+	    margin-right: 66.66666667%;
+	  }
+	  .col-sm-offset-right-7 {
+	    margin-right: 58.33333333%;
+	  }
+	  .col-sm-offset-right-6 {
+	    margin-right: 50%;
+	  }
+	  .col-sm-offset-right-5 {
+	    margin-right: 41.66666667%;
+	  }
+	  .col-sm-offset-right-4 {
+	    margin-right: 33.33333333%;
+	  }
+	  .col-sm-offset-right-3 {
+	    margin-right: 25%;
+	  }
+	  .col-sm-offset-right-2 {
+	    margin-right: 16.66666667%;
+	  }
+	  .col-sm-offset-right-1 {
+	    margin-right: 8.33333333%;
+	  }
+	  .col-sm-offset-right-0 {
+	    margin-right: 0;
+	  }
+	}
+	@media (min-width: 992px) {
+	  .col-md-offset-right-12 {
+	    margin-right: 100%;
+	  }
+	  .col-md-offset-right-11 {
+	    margin-right: 91.66666667%;
+	  }
+	  .col-md-offset-right-10 {
+	    margin-right: 83.33333333%;
+	  }
+	  .col-md-offset-right-9 {
+	    margin-right: 75%;
+	  }
+	  .col-md-offset-right-8 {
+	    margin-right: 66.66666667%;
+	  }
+	  .col-md-offset-right-7 {
+	    margin-right: 58.33333333%;
+	  }
+	  .col-md-offset-right-6 {
+	    margin-right: 50%;
+	  }
+	  .col-md-offset-right-5 {
+	    margin-right: 41.66666667%;
+	  }
+	  .col-md-offset-right-4 {
+	    margin-right: 33.33333333%;
+	  }
+	  .col-md-offset-right-3 {
+	    margin-right: 25%;
+	  }
+	  .col-md-offset-right-2 {
+	    margin-right: 16.66666667%;
+	  }
+	  .col-md-offset-right-1 {
+	    margin-right: 8.33333333%;
+	  }
+	  .col-md-offset-right-0 {
+	    margin-right: 0;
+	  }
+	}
+	@media (min-width: 1200px) {
+	  .col-lg-offset-right-12 {
+	    margin-right: 100%;
+	  }
+	  .col-lg-offset-right-11 {
+	    margin-right: 91.66666667%;
+	  }
+	  .col-lg-offset-right-10 {
+	    margin-right: 83.33333333%;
+	  }
+	  .col-lg-offset-right-9 {
+	    margin-right: 75%;
+	  }
+	  .col-lg-offset-right-8 {
+	    margin-right: 66.66666667%;
+	  }
+	  .col-lg-offset-right-7 {
+	    margin-right: 58.33333333%;
+	  }
+	  .col-lg-offset-right-6 {
+	    margin-right: 50%;
+	  }
+	  .col-lg-offset-right-5 {
+	    margin-right: 41.66666667%;
+	  }
+	  .col-lg-offset-right-4 {
+	    margin-right: 33.33333333%;
+	  }
+	  .col-lg-offset-right-3 {
+	    margin-right: 25%;
+	  }
+	  .col-lg-offset-right-2 {
+	    margin-right: 16.66666667%;
+	  }
+	  .col-lg-offset-right-1 {
+	    margin-right: 8.33333333%;
+	  }
+	  .col-lg-offset-right-0 {
+	    margin-right: 0;
+	  }
+	}
+/* bootstrap right offset */
+

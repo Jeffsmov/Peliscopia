@@ -3,10 +3,10 @@
 <head>
 	<title>Reseña</title>
 	<meta charset="utf-8">
+
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/landingstyle_2.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script type="text/javascript" src="js/jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/landingstyle_2.css">
 </head>
 <body>
 

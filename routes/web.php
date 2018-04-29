@@ -40,3 +40,11 @@ Route::get('/principal_2', function () {
 Route::get('/perfil_2', function () {
     return view('perfil_2');
 });
+
+Route::get('/principal_3', function () {
+    return view('principal_3');
+});
+
+Route::get('/perfil_3', function () {
+    return view('perfil_3');
+});
