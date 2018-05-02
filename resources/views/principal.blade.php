@@ -1,135 +1,158 @@
-<!DOCTYPE html>
+<!Doctype html>
 <html>
 <head>
-	<title>Peliscopia</title>
-	<meta charset="utf-8">
+    <title>Peliscopia</title>
+    <meta charset="utf-8">
+    
+    <link rel="icon" type="image/png" href="img/logo[W].png"/>
+
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/landingstyle_2.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script type="text/javascript" src="js/jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/principalstyle.css"> <!-- AQUI VA UNA VARIABLE PARA EL CSS DE LA PAGINA ES -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-
- <!-- Barra Navegacion -->
-	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        
+<!-- Barra Navegacion -->
+    <form id="searchForm" class="navbar-form navbar-left pull-left" role="search">
+    </form>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-                <a href="" class="navbar-brand"><strong>PELISCOPIA</strong></a>
-                <a href="" class="navbar-brand">Perfil</a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <a href="/principal"><img class="img-responsive img-logo navbar-left hidden-xs" src="img/logo[W].png"></a>
+                <a href="/principal" class="navbar-brand"><strong>PELISCOPIA</strong></a>
+
             </div>
+
+            <div class="navbar-form navbar-left hidden-xs" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search"> 
+                    <button class="btn btn-default hidden-xs"><span class="glyphicon glyphicon-search"></span></button>
+                </div>
+            </div>
+
             <div class="navbar-collapse collapse">
-                 <ul class="nav navbar-nav">
-                    <div class="form-group has-success has-feedback">
-					  <input type="text" class="form-control" id="inputSuccess2" aria-describedby="inputSuccess2Status" placeholder="Buscar">
-					  <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
-					  <span id="inputSuccess2Status" class="sr-only">(success)</span>
-					</div>
+                 <ul class="nav navbar-nav navbar-right">
+
+                    <div class="navbar-form navbar-left hidden-sm hidden-md hidden-lg hidden-xl" role="search">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search"> 
+                        </div>
+                    </div>
+
+                    <li class="hidden-xs"><a href="/perfil" class="img-logo"><img title="Perfil" class="img-logo vcenter" src="img/drama.jpg"></a></li>
+                    <li class="hidden-sm hidden-md hidden-lg hidden-xl"><a href="/perfil"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;Perfil</a></li>
+
+                    <li class="hidden-xs"><a href="/reseña"><span title="Escribe reseña" class="glyphicon glyphicon-pencil"></span></a></li>
+                    <li class="hidden-sm hidden-md hidden-lg hidden-xl"><a href="/reseña"><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;&nbsp;Escribe reseña</a></li>
+
+                    <li class="hidden-xs"><a href="/configuracion"><span title="Configuración" class="glyphicon glyphicon-cog"></span></a></li>
+                    <li class="hidden-sm hidden-md hidden-lg hidden-xl"><a href="/configuracion"><span class="glyphicon glyphicon-cog"></span>&nbsp;&nbsp;&nbsp;Configuración</a></li>
+
+                    <li class="hidden-xs"><a href="/close"><span title="Cerrar Sesion" class="glyphicon glyphicon-off"></span></a></li>
+                    <li class="hidden-sm hidden-md hidden-lg hidden-xl"><a href="/close"><span class="glyphicon glyphicon-off"></span>&nbsp;&nbsp;&nbsp;Cerrar Sesion</a></li>
+
                  </ul>
-                  <a href="" id="fin-ses" class="navbar-brand" align="right">Cerrar Sesion</a>
             </div>
+
         </div>
     </nav>
+<!-- Fin Barra Navegacion -->
 
-<!-- Creacion de reseña -->
-     <div class="container">
-    	<div class="jumbotron col-md-1">
-    		<img class="col-md-2" src="img/Logo Peliscopia.png">
-    		<h3 class="col-md-10">Da tu opinion, se un experto en cine en la comunidad mas grande</h3>
-    		<a href="#modal" class="btn btn-danger" data-toggle="modal">Crea tu reseña</a>
-    	</div>
-    </div>
+<!-- Header -->
+    <header class="container main-header ">
+        <div class="jumbotron">
+            <div class="row">
+                <img class="img-responsive col-md-2 hidden-xs hidden-sm" src="img/Logo Peliscopia.png">
+                <h3 class="col-md-10">Da tu opinion, se un experto en cine en la comunidad m&aacute;s grande en latinoamerica!</h3>
+            </div>
+            <div class="row text-center">
+                <a class="btn btn-danger pull-right col-md-2 col-xs-offset-right-1 text-center">Crea una reseña</a>
+            </div>
+        </div>
+    </header>
+<!-- Fin Header -->
 
-<!-- Ventana Modal Creacion de reseña -->
-    <div class="modal fade" id="modal">
-    	<div class="modal-dialog">
-    		<div class="modal-content">
-    			<div class="modal-header">
-    				<button tyle="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-    				<h2 class="modal-title">Crea tu reseña</h2>
-    				
-    				<div class="modal-body">
-    					<form>
-						  <div class="form-group">
-						    <label for="exampleInputEmail1">Pelicula</label>
-						    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Pelicula">
-						  </div>
-						  <div class="form-group">
-						    <label for="exampleInputPassword1">Reseña</label>
-						    <textarea class="form-control" rows="5"></textarea>
-						  </div>
-						  <div class="form-group">
-						    <label for="exampleInputFile">File input</label>
-						    <input type="file" id="exampleInputFile">
-						    <p class="help-block">Example block-level help text here.</p>
-						  </div>
-						  <button type="submit" class="btn btn-default">Submit</button>
-						</form>
-    				</div>
+<!-- Content -->
+    <div class="container-fluid text-center">    
+        <div class="row content">
 
-    			</div>    			
-    		</div>    		
-    	</div>
-    </div>
 
-<!-- Reseña -->
-    <div class="container">
-    	<div class="jumbotron col-md-1">
-    		<img class="col-md-2" src="img/pelicula.jpg">
-    		<h4 class="col-md-10">Ready Player One</h4>
-    		<h5 class="col-md-1">2018</h5>
-    		<h5 class="col-md-8">Duracion: 2h 20min </h5>
-    		<h8 class="col-md-8">Cuando el creador de un mundo de realidad virtual llamado OASIS muere, lanza un video en el que desafía a todos los usuarios de OASIS a encontrar su Huevo de Pascua, que le dará fortuna al buscador.</h8>
-            <div class="form-group col-md-5">
-                    <input type="text" class="form-control" placeholder="Comenta">
-                    <span class="glyphicon glyphicon-user form-control-feedback" aria-hidden="true"></span>
-                    <span id="inputSuccess2Status" class="sr-only">(success)</span>
+            <div class="col-sm-2 sidenav">
+                <p><a href="">Link</a></p>
+                <p><a href="">Link</a></p>
+                <p><a href="">Link</a></p>
+            </div>
+
+
+
+            <div class="col-sm-offset-1 col-sm-6 col-sm-offset-right-1 text-left row"> 
+
+                <div class="col-xs-offset-1 hidden-xl hidden-lg hidden-md hidden-sm"></div>
+
+                <div class="row col-sm-12 col-xs-10 col-xs-offset-1 col-sm-offset-0">
+                    <img class="col-md-2 img-responsive vcenter pull-left hidden-sm hidden-xs" src="img/pelicula.jpg">
+
+                    <div class="col-md-10 row">
+
+                        <div class="row">
+                            <div class="col-md-12"> <a href="">Ready Player One</a> <a href="" class="more-reviews">(Más reviews)</a> </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12"> <a href="" class="more-reviews">User</a> <a href="" class="more-reviews">(Más reviews)</a> <span class="more-reviews pull-right">2018-04-28</span></div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">Rating: 10</div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">Cuando el creador de un mundo de realidad virtual llamado OASIS muere, lanza un video en el que desafía a todos los usuarios de OASIS a encontrar su Huevo de Pascua, que le dará fortuna al buscador.</div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-12 text-right more-reviews">
+                                <a href="">Comentarios</a> <a href="">Algo más</a>
+                            </div>
+                        </div>
+
+                    </div>
+
                 </div>
-    		<a href="#modalresena" class="btn btn-primary" data-toggle="modal">Ver Reseña</a>
-    	</div>
+
+            </div>
+
+
+            <div class="col-sm-2 sidenav">
+                <div class="well">
+                    <p>ADS</p>
+                </div>
+                <div class="well">
+                    <p>ADS</p>
+                </div>
+            </div>
+
+
+        </div>
     </div>
+<!-- Content -->
 
-    <!-- Ventana Modal Descripcion completa reseña -->
-    <div class="modal fade" id="modalresena">
-    	<div class="modal-dialog">
-    		<div class="modal-content">
-    			<div class="modal-header">
-    				<button tyle="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-    				<h2 class="modal-title">Reseña</h2>
-    				
-    				<div class="modal-body">
-    					<img class="col-md-5" src="img/pelicula.jpg">
-			    		<h3 class="col-md-7">Ready Player One</h3>
-			    		<h5 class="col-md-1">2018</h5>
-			    		<h5 class="col-md-7">Duracion: 2h 20min </h5>
-			    		<h5 class="col-md-7">Director: Steven Spieldberg </h5>
-			    		<h5 class="col-md-7">Reparto: Tye Sheridan, Olivia Cooke, Ben Mendelsohn, Mark Rylance, Simon Pegg, T. J. Miller, Lena Waithe, Win Morisaki, Philip Zhao, Ralph Ineson, Letitia Wright </h5>
-			    		<h8 class="col-md-11">Estamos en el año 2044 y, como el resto de la humanidad, Wade Watts prefiere mil veces el videojuego de OASIS al cada vez más sombrío mundo real. Se asegura que esconde las diabólicas piezas de un rompecabezas cuya resolución conduce a una fortuna incalculable. Las claves del enigma están basadas en la cultura de finales del siglo XX y, durante años, millones de humanos han intentado dar con ellas, sin éxito. De repente, Wade logra resolver el primer rompecabezas del premio, y, a partir de ese momento, debe competir contra miles de jugadores para conseguir el trofeo. La única forma de sobrevivir es ganar; pero para hacerlo tendrá que abandonar su existencia virtual y enfrentarse a la vida y al amor en el mundo real, del que siempre ha intentado escapar.</h8>
-    				</div>
+<!-- Footer -->
+    <footer class="container-fluid footer text-center">
+        <span>Peliscopia &copy;</span>
+    </footer>
+<!-- Footer -->
 
-    			</div>    			
-    		</div>    		
-    	</div>
-    </div>
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 
- <!-- Paginacion -->
-    <div class="container-fluid">
-    	<br>
-    	<nav>
-    		<ul class="pagination">
-    			<li class="disabled"><a href="#">&laquo;</a></li>
-    			<li class="active"><a href="">1</a></li>
-    			<li><a href="">2</a></li>
-    			<li><a href="">3</a></li>
-    			<li><a href="">4</a></li>
-    			<li><a href="">5</a></li>
-    			<li><a href="#">&raquo;</a></li>
-    		</ul>
-    	</nav>
-    </div>
-
-
-	<script src="js/jquery.js"></script>
-  	<script src="js/bootstrap.min.js"></script>
 </body>
 </html>

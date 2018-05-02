@@ -1,16 +1,19 @@
-<!DOCTYPE html>
+<!Doctype html>
 <html>
 <head>
-	<title>Reseña</title>
-	<meta charset="utf-8">
+    <title>Peliscopia</title>
+    <meta charset="utf-8">
+    
+    <link rel="icon" type="image/png" href="img/logo[W].png"/>
 
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/resena.css">
+    <link rel="stylesheet" type="text/css" href="css/configuracion.css"> <!-- AQUI VA UNA VARIABLE PARA EL CSS DE LA PAGINA ES -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-
-
+        
 <!-- Barra Navegacion -->
     <form id="searchForm" class="navbar-form navbar-left pull-left" role="search">
     </form>
@@ -65,17 +68,6 @@
 
 <!-- Header -->
     <header class="container main-header ">
-        <!-- 
-        <div class="jumbotron">
-            <div class="row">
-                <img class="img-responsive col-md-2 hidden-xs hidden-sm" src="img/Logo Peliscopia.png">
-                <h3 class="col-md-10">Da tu opinion, se un experto en cine en la comunidad m&aacute;s grande en latinoamerica!</h3>
-            </div>
-            <div class="row">
-                <a class="btn btn-danger pull-right col-md-2 col-xs-offset-right-1 text-center">Crea una reseña&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-pencil"></span></a>
-            </div>
-        </div>
-        -->
     </header>
 <!-- Fin Header -->
 
@@ -84,7 +76,7 @@
 
         <div class="row">
 
-        <!-- Reseña -->
+        <!-- Configuracion -->
 
             <div class="col-xs-offset-1 col-sm-8 text-left"> 
 
@@ -93,11 +85,11 @@
 
                         <div class="modal-header">
                             <br>
-                            <h2 class="modal-title text-center">Crea tu reseña</h2>
+                            <h2 class="modal-title text-center">Configurac&iacute;on</h2>
                             <br>
                             <div class="modal-body">
 
-                                <form action="action/review" method="post">
+                                <form action="action/setting" method="post">
 
                                     {{ csrf_field() }}
                                     <div class="form-group">
@@ -109,7 +101,7 @@
                                         <textarea class="form-control" rows="5" id="resenaValue" placeholder="Reseña" required="true"></textarea>
                                     </div>
 
-                                    <button class="btn btn-default pull-right">Submit</button>
+                                    <button class="btn btn-default pull-right">Salvar</button>
                                 </form>
 
                             </div>
@@ -120,7 +112,7 @@
 
             </div>
 
-        <!-- Reseñas -->
+        <!-- Configuracion -->
 
         <!-- ADS -->
             <div class="col-sm-offset-1 col-sm-2 hidden-xs sidenav">
@@ -141,15 +133,13 @@
 <!-- Content -->
 
 <!-- Footer -->
-    <footer class="container-fluid footer text-center navbar-fixed-bottom">
+    <footer class="container-fluid navbar-fixed-bottom footer text-center">
         <span>Peliscopia &copy;</span>
     </footer>
 <!-- Footer -->
 
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.autocomplete.js"></script>
-    <script src="js/resena.js"></script>
 
 </body>
 </html>

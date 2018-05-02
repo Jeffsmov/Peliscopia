@@ -23,6 +23,10 @@ Route::get('/perfil', function () {
     return view('perfil');
 });
 
+Route::get('/movie', function () {
+    return view('movie');
+});
+
 Route::get('/principal', function () {
     return view('principal');
 });
@@ -31,20 +35,18 @@ Route::get('/reseña', function () {
     return view('reseña');
 });
 
-
-
-Route::get('/principal_2', function () {
-    return view('principal_2');
+Route::get('/configuracion', function () {
+    return view('configuracion');
 });
 
-Route::get('/perfil_2', function () {
-    return view('perfil_2');
+Route::post('/login', function () {
+    return redirect('/principal');
 });
 
-Route::get('/principal_3', function () {
-    return view('principal_3');
+Route::get('/close', function () {
+    return redirect('/');
 });
 
-Route::get('/perfil_3', function () {
-    return view('perfil_3');
+Route::get('/reseña2', function () {
+    return view('shit/principal');
 });

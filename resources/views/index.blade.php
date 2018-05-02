@@ -1,6 +1,6 @@
 <!Doctype html>
 <html>
- <head>
+<head>
     <title> Peliscopia </title>
     <meta charset="utf-8">
     
@@ -51,16 +51,19 @@
 
                         <!-- Inicio Login -->                  
                         
-                        <form action="/action.php" method="post" id="formLogin">
-                        <div class="form-group">
-                            <input name="email" type="mail" class="form-control" id="formGroupExampleInput2" placeholder="Correo">
-                        </div>
-                        <div class="form-group">
-                            <input name="pass" type="password" class="form-control" id="formGroupExampleInput2" placeholder="Contraseña">
-                        </div>
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-aceptar btn-block" id="btnLogin">Ingresar</button>
-                        </div>
+                        <form action="/login" method="post" id="formLogin">
+                            {{ csrf_field() }}
+
+                            <div class="form-group">
+                                <input name="email" type="mail" class="form-control" id="formGroupExampleInput2" placeholder="Correo">
+                            </div>
+                            <div class="form-group">
+                                <input name="pass" type="password" class="form-control" id="formGroupExampleInput2" placeholder="Contraseña">
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-aceptar btn-block" id="btnLogin">Ingresar</button>
+                            </div>
+
                         </form>
 
                         <!-- Fin Login -->
@@ -184,7 +187,6 @@
 
     </div>
 <!-- Fin Segunda seccion -->    
-
 
 <!-- Footer -->
     <footer class="container-fluid footer text-center">
