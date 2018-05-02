@@ -12,13 +12,13 @@
                     <span class="icon-bar"></span>
                 </button>
 
-                <a href="/"><img class="img-responsive img-logo navbar-left hidden-xs" src="img/logo[W].png"></a>
+                <a href="/"><img class="img-responsive img-logo navbar-left hidden-xs" src="/img/logo[W].png"></a>
                 <a href="/" class="navbar-brand"><strong>PELISCOPIA</strong></a>
 
             </div>
             <div class="navbar-collapse collapse">
                  <ul class="nav navbar-nav">
-                    <li><a href="registro">Registrate</a></li>
+                    <li><a href="/registro">Registrate</a></li>
                     <li><a href="#login" data-toggle="modal">Iniciar Sesion</a></li>
                  </ul>
             </div>
@@ -78,7 +78,7 @@
                     <span class="icon-bar"></span>
                 </button>
 
-                <a href="/principal"><img class="img-responsive img-logo navbar-left hidden-xs" src="img/logo[W].png"></a>
+                <a href="/principal"><img class="img-responsive img-logo navbar-left hidden-xs" src="/img/logo[W].png"></a>
                 <a href="/principal" class="navbar-brand"><strong>PELISCOPIA</strong></a>
 
             </div>
@@ -99,7 +99,7 @@
                         </div>
                     </div>
 
-                    <li class="hidden-xs"><a href="/perfil" class="img-logo"><img title="Perfil" class="img-logo vcenter" src="img/drama.jpg"></a></li>
+                    <li class="hidden-xs"><a href="/perfil" class="img-logo"><img title="Perfil" class="img-logo vcenter" src="/img/drama.jpg"></a></li>
                     <li class="hidden-sm hidden-md hidden-lg hidden-xl"><a href="/perfil"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;Perfil</a></li>
 
                     <li class="hidden-xs"><a href="/reseña"><span title="Escribe reseña" class="glyphicon glyphicon-pencil"></span></a></li>

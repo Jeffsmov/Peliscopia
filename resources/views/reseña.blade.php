@@ -4,9 +4,9 @@
 	<title>Reseña</title>
 	<meta charset="utf-8">
 
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/resena.css">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/resena.css">
 </head>
 <body>
 
@@ -23,7 +23,7 @@
                     <span class="icon-bar"></span>
                 </button>
 
-                <a href="/principal"><img class="img-responsive img-logo navbar-left hidden-xs" src="img/logo[W].png"></a>
+                <a href="/principal"><img class="img-responsive img-logo navbar-left hidden-xs" src="/img/logo[W].png"></a>
                 <a href="/principal" class="navbar-brand"><strong>PELISCOPIA</strong></a>
 
             </div>
@@ -44,7 +44,7 @@
                         </div>
                     </div>
 
-                    <li class="hidden-xs"><a href="/perfil" class="img-logo"><img title="Perfil" class="img-logo vcenter" src="img/drama.jpg"></a></li>
+                    <li class="hidden-xs"><a href="/perfil" class="img-logo"><img title="Perfil" class="img-logo vcenter" src="/img/drama.jpg"></a></li>
                     <li class="hidden-sm hidden-md hidden-lg hidden-xl"><a href="/perfil"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;Perfil</a></li>
 
                     <li class="hidden-xs"><a href="/reseña"><span title="Escribe reseña" class="glyphicon glyphicon-pencil"></span></a></li>
@@ -68,7 +68,7 @@
         <!-- 
         <div class="jumbotron">
             <div class="row">
-                <img class="img-responsive col-md-2 hidden-xs hidden-sm" src="img/Logo Peliscopia.png">
+                <img class="img-responsive col-md-2 hidden-xs hidden-sm" src="/img/Logo Peliscopia.png">
                 <h3 class="col-md-10">Da tu opinion, se un experto en cine en la comunidad m&aacute;s grande en latinoamerica!</h3>
             </div>
             <div class="row">
@@ -146,10 +146,10 @@
     </footer>
 <!-- Footer -->
 
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.autocomplete.js"></script>
-    <script src="js/resena.js"></script>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.autocomplete.js"></script>
+    <script src="/js/resena.js"></script>
 
 </body>
 </html>

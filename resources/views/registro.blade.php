@@ -4,9 +4,9 @@
 	<title>Registro</title>
 	<meta charset="utf-8">
     
- 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
- 	<link rel="stylesheet" type="text/css" href="css/registrostyle.css">
+ 	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+ 	<link rel="stylesheet" type="text/css" href="/css/registrostyle.css">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -22,13 +22,13 @@
                     <span class="icon-bar"></span>
                 </button>
 
-                <a href="/"><img class="img-responsive img-logo navbar-left hidden-xs" src="img/logo[W].png"></a>
+                <a href="/"><img class="img-responsive img-logo navbar-left hidden-xs" src="/img/logo[W].png"></a>
                 <a href="/" class="navbar-brand"><strong>PELISCOPIA</strong></a>
 
             </div>
             <div class="navbar-collapse collapse">
                  <ul class="nav navbar-nav">
-                    <li><a href="registro">Registrate</a></li>
+                    <li><a href="/registro">Registrate</a></li>
                     <li><a href="#login" data-toggle="modal">Iniciar Sesion</a></li>
                  </ul>
             </div>
@@ -140,8 +140,8 @@
     </footer>
 <!-- Footer -->
 
-	<script src="js/jquery.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+	<script src="/js/jquery.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
 
 </body>
 </html>

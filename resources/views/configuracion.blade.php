@@ -4,11 +4,11 @@
     <title>Peliscopia</title>
     <meta charset="utf-8">
     
-    <link rel="icon" type="image/png" href="img/logo[W].png"/>
+    <link rel="icon" type="image/png" href="/img/logo[W].png"/>
 
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/configuracion.css"> <!-- AQUI VA UNA VARIABLE PARA EL CSS DE LA PAGINA ES -->
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/configuracion.css"> <!-- AQUI VA UNA VARIABLE PARA EL CSS DE LA PAGINA ES -->
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -26,7 +26,7 @@
                     <span class="icon-bar"></span>
                 </button>
 
-                <a href="/principal"><img class="img-responsive img-logo navbar-left hidden-xs" src="img/logo[W].png"></a>
+                <a href="/principal"><img class="img-responsive img-logo navbar-left hidden-xs" src="/img/logo[W].png"></a>
                 <a href="/principal" class="navbar-brand"><strong>PELISCOPIA</strong></a>
 
             </div>
@@ -47,7 +47,7 @@
                         </div>
                     </div>
 
-                    <li class="hidden-xs"><a href="/perfil" class="img-logo"><img title="Perfil" class="img-logo vcenter" src="img/drama.jpg"></a></li>
+                    <li class="hidden-xs"><a href="/perfil" class="img-logo"><img title="Perfil" class="img-logo vcenter" src="/img/drama.jpg"></a></li>
                     <li class="hidden-sm hidden-md hidden-lg hidden-xl"><a href="/perfil"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;Perfil</a></li>
 
                     <li class="hidden-xs"><a href="/reseña"><span title="Escribe reseña" class="glyphicon glyphicon-pencil"></span></a></li>
@@ -102,6 +102,7 @@
                                     </div>
 
                                     <button class="btn btn-default pull-right">Salvar</button>
+                                    
                                 </form>
 
                             </div>
@@ -138,8 +139,8 @@
     </footer>
 <!-- Footer -->
 
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
 
 </body>
 </html>

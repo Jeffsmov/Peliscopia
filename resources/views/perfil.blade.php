@@ -4,11 +4,11 @@
     <title>Peliscopia</title>
     <meta charset="utf-8">
     
-    <link rel="icon" type="image/png" href="img/logo[W].png"/>
+    <link rel="icon" type="image/png" href="/img/logo[W].png"/>
 
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/perfil.css"> <!-- AQUI VA UNA VARIABLE PARA EL CSS DE LA PAGINA ES -->
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/perfil.css"> <!-- AQUI VA UNA VARIABLE PARA EL CSS DE LA PAGINA ES -->
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -26,7 +26,7 @@
                     <span class="icon-bar"></span>
                 </button>
 
-                <a href="/principal"><img class="img-responsive img-logo navbar-left hidden-xs" src="img/logo[W].png"></a>
+                <a href="/principal"><img class="img-responsive img-logo navbar-left hidden-xs" src="/img/logo[W].png"></a>
                 <a href="/principal" class="navbar-brand"><strong>PELISCOPIA</strong></a>
 
             </div>
@@ -47,7 +47,7 @@
                         </div>
                     </div>
 
-                    <li class="hidden-xs"><a href="/perfil" class="img-logo"><img title="Perfil" class="img-logo vcenter" src="img/drama.jpg"></a></li>
+                    <li class="hidden-xs"><a href="/perfil" class="img-logo"><img title="Perfil" class="img-logo vcenter" src="/img/drama.jpg"></a></li>
                     <li class="hidden-sm hidden-md hidden-lg hidden-xl"><a href="/perfil"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;Perfil</a></li>
 
                     <li class="hidden-xs"><a href="/reseña"><span title="Escribe reseña" class="glyphicon glyphicon-pencil"></span></a></li>
@@ -71,7 +71,7 @@
         <!-- 
         <div class="jumbotron">
             <div class="row">
-                <img class="img-responsive col-md-2 hidden-xs hidden-sm" src="img/Logo Peliscopia.png">
+                <img class="img-responsive col-md-2 hidden-xs hidden-sm" src="/img/Logo Peliscopia.png">
                 <h3 class="col-md-10">Da tu opinion, se un experto en cine en la comunidad m&aacute;s grande en latinoamerica!</h3>
             </div>
             <div class="row">
@@ -91,7 +91,7 @@
 
             <div class="col-sm-3 ">
                 <div class="col-md-12" align="center">
-                    <img src="img/cavani.png" class="img-responsive img-perfil" alt="Responsive image">
+                    <img src="/img/cavani.png" class="img-responsive img-perfil" alt="Responsive image">
                 </div>
                 <div class="col-md-12">
                     <br>
@@ -102,10 +102,10 @@
                 <div class="col-md-12 text-center">
                     <ul class="list-unstyled list-inline list-social-icons">
                         <li>
-                            <a href=""><i class="editIcons icon-facebook-square editSizeIcons"></i></a>
+                            <a href="/"><i class="editIcons icon-facebook-square editSizeIcons"></i></a>
                         </li>
                         <li>
-                            <a href=""><i class="editIcons icon-twitter-square editSizeIcons"></i></a>
+                            <a href="/"><i class="editIcons icon-twitter-square editSizeIcons"></i></a>
                         </li>
                     </ul>
                 </div>
@@ -122,16 +122,16 @@
 
             <!-- Reseña -->
                 <div class="row col-sm-12 col-xs-10 col-xs-offset-1 col-sm-offset-0">
-                    <img class="col-md-2 img-responsive vcenter pull-left hidden-sm hidden-xs" src="img/pelicula.jpg">
+                    <img class="col-md-2 img-responsive vcenter pull-left hidden-sm hidden-xs" src="/img/pelicula.jpg">
 
                     <div class="col-md-10 row">
 
                         <div class="row">
-                            <div class="col-md-12"> <a href="">Ready Player One</a> <a href="" class="more-reviews">(Más reviews)</a> </div>
+                            <div class="col-md-12"> <a href="/">Ready Player One</a> <a href="/" class="more-reviews">(Más reviews)</a> </div>
                         </div>
 
                         <div class="row">
-                            <div class="col-md-12"> <a href="" class="more-reviews">User</a> <a href="" class="more-reviews">(Más reviews)</a> <span class="more-reviews pull-right">2018-04-28</span></div>
+                            <div class="col-md-12"> <a href="/" class="more-reviews">User</a> <a href="/" class="more-reviews">(Más reviews)</a> <span class="more-reviews pull-right">2018-04-28</span></div>
                         </div>
 
                         <div class="row">
@@ -144,7 +144,7 @@
 
                         <div class="row">
                             <div class="form-group col-md-12 text-right more-reviews">
-                                <a href="">Comentarios</a> <a href="">Algo más</a>
+                                <a href="/">Comentarios</a> <a href="/">Algo más</a>
                             </div>
                         </div>
 
@@ -180,8 +180,8 @@
     </footer>
 <!-- Footer -->
 
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
 
 </body>
 </html>

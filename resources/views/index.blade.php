@@ -4,11 +4,11 @@
     <title> Peliscopia </title>
     <meta charset="utf-8">
     
-    <link rel="icon" type="image/png" href="img/logo[W].png"/>
+    <link rel="icon" type="image/png" href="/img/logo[W].png"/>
 
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/landingstyle.css"> <!-- AQUI VA UNA VARIABLE PARA EL CSS DE LA PAGINA ES -->
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/landingstyle.css"> <!-- AQUI VA UNA VARIABLE PARA EL CSS DE LA PAGINA ES -->
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -24,13 +24,13 @@
                     <span class="icon-bar"></span>
                 </button>
 
-                <a href="/"><img class="img-responsive img-logo navbar-left hidden-xs" src="img/logo[W].png"></a>
+                <a href="/"><img class="img-responsive img-logo navbar-left hidden-xs" src="/img/logo[W].png"></a>
                 <a href="/" class="navbar-brand"><strong>PELISCOPIA</strong></a>
 
             </div>
             <div class="navbar-collapse collapse">
                  <ul class="nav navbar-nav">
-                    <li><a href="registro">Registrate</a></li>
+                    <li><a href="/registro">Registrate</a></li>
                     <li><a href="#login" data-toggle="modal">Iniciar Sesion</a></li>
                  </ul>
             </div>
@@ -101,21 +101,21 @@
         <div class="row">
             <div class="centrado">
                 <div class="col-md-4 col-sm-4">
-                    <img class="img-circle" src="img/accion_2.png" width="140px">
+                    <img class="img-circle" src="/img/accion_2.png" width="140px">
                     <h4>Accion</h4>
                 </div>
             </div>
 
             <div class="centrado">
                 <div class="col-md-4 col-sm-4">
-                    <img class="img-circle" src="img/comedia.png" width="140px">
+                    <img class="img-circle" src="/img/comedia.png" width="140px">
                     <h4>Comedia</h4>
                 </div>
             </div>
         
             <div class="centrado">
                 <div class="col-md-4 col-sm-4">
-                    <img class="img-circle" src="img/terror.png" width="140px">
+                    <img class="img-circle" src="/img/terror.png" width="140px">
                     <h4>Terror</h4>
                 </div>
             </div>
@@ -123,21 +123,21 @@
         <div class="row">
             <div class="centrado">
                 <div class="col-md-4 col-sm-4">
-                    <img class="img-circle" src="img/cienciaficcion.png" width="140px">
+                    <img class="img-circle" src="/img/cienciaficcion.png" width="140px">
                     <h4>Ciencia Ficcion</h4>
                 </div>
             </div>
 
             <div class="centrado">
                 <div class="col-md-4 col-sm-4">
-                    <img class="img-circle" src="img/animacion.png" width="140px">
+                    <img class="img-circle" src="/img/animacion.png" width="140px">
                     <h4>Animacion</h4>
                 </div>
             </div>
 
             <div class="centrado">
                 <div class="col-md-4 col-sm-4">
-                    <img class="img-circle" src="img/drama.jpg" width="140px">
+                    <img class="img-circle" src="/img/drama.jpg" width="140px">
                     <h4>Drama</h4>
                 </div>
             </div>
@@ -170,15 +170,15 @@
                   <div class="carousel-inner centrado" role="listbox">
                         <div class="item active">
                           <h3>Star Wars</h3>
-                          <img class="img-item" src="img/1.jpeg" alt="...">
+                          <img class="img-item" src="/img/1.jpeg" alt="...">
                         </div>
                         <div class="item">
                           <h3>Scott Pilgrim</h3>
-                          <img class="img-item" src="img/4.jpg" alt="...">
+                          <img class="img-item" src="/img/4.jpg" alt="...">
                         </div>
                         <div class="item">
                           <h3>My Little Pony</h3>
-                          <img class="img-item" src="img/5.jpg" alt="...">
+                          <img class="img-item" src="/img/5.jpg" alt="...">
                         </div>
                   </div>
                 </div>
@@ -194,8 +194,8 @@
     </footer>
 <!-- Footer -->
 
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
 
 </body>
 </html>

@@ -35,6 +35,10 @@ Route::get('/reseña', function () {
     return view('reseña');
 });
 
+Route::get('/reseña/id', function () {
+    return view('reseñaID');
+});
+
 Route::get('/configuracion', function () {
     return view('configuracion');
 });
