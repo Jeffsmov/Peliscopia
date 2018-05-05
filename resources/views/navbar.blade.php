@@ -42,11 +42,11 @@
                         <form action="/login" method="post" id="formLogin">
                             {{ csrf_field() }}
 
-                            <div class="form-group">
-                                <input name="email" type="mail" class="form-control" id="formGroupExampleInput2" placeholder="Correo">
+                            <div class="form-group has-feedback">
+                                <input name="email" type="mail" class="form-control" id="idEmailLogin" placeholder="Correo" required>
                             </div>
-                            <div class="form-group">
-                                <input name="pass" type="password" class="form-control" id="formGroupExampleInput2" placeholder="Contraseña">
+                            <div class="form-group has-feedback">
+                                <input name="pass" type="password" class="form-control" id="idPassLogin" placeholder="Contraseña" required>
                             </div>
                             <div class="form-group">
                                 <button type="submit" class="btn btn-aceptar btn-block" id="btnLogin">Ingresar</button>

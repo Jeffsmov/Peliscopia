@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
+
     use Notifiable;
 
     /**
@@ -15,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password' //, 'fechaNacimiento', 'genero', 'tipoUsuario', 'idPais', 'ftPerfil', 'bio'
     ];
 
     /**
@@ -26,4 +27,24 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    protected $table = "user";
+
+
+//Usuario no identificado 
+/*
+	protected function unauthenticated($request, AuthenticationException $exception)
+	{
+	    return $request->expectsJson()
+	                ? response()->json(['message' => $exception->getMessage()], 401)
+	                : redirect()->guest(route('login'));
+	}
+*/
+
+
+    public static function getPerfilImg($id){
+        $us = User::where('id',$id)->first(['ftPerfil AS img','perfilExt AS ext']);
+        return $us;
+    }
+
 }

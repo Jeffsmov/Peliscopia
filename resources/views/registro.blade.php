@@ -83,18 +83,20 @@
 			</div>
 			<br>
 		</header>
-			<form class="form">
+			<form class="form" action="/signin" method="post" id="formRegistro">
+
+				{{ csrf_field() }}
 
 				<div class="row">
 
 					<div class="form-group col-sm-6">
-						<label class="control-label">Nombre</label>
-						<input type="text" class="form-control" placeholder="Nombre" name="">
+						<label class="control-label">Nombre &nbsp;</label><label title="Minimo 5 caracteres"><strong><u>?</u></strong></label>
+						<input type="text" class="form-control" placeholder="Nombre" name="nombre" id="idNombre" required>
 					</div>
 
 					<div class="form-group col-sm-6">
 						<label class="control-label">Correo</label>
-						<input type="email" class="form-control" placeholder="correo@email.com" name="">
+						<input type="email" id="idEmailRegistro" class="form-control" placeholder="correo@email.com" name="email" required>
 					</div>
 
 				</div>
@@ -102,13 +104,13 @@
 				<div class="row">
 
 					<div class="form-group col-sm-6">
-						<label class="control-label">Contraseña</label>
-						<input type="password" class="form-control" placeholder="Contraseña" name="">
+						<label class="control-label">Contraseña &nbsp;</label><label title="Minimo 5 caracteres"><strong><u>?</u></strong></label>
+						<input type="password" class="form-control" placeholder="Contraseña" id="idPassword" name="pass" required>
 					</div>
 
 					<div class="form-group col-sm-6">
 						<label class="control-label">Confirmar Contraseña</label>
-						<input type="password" class="form-control" placeholder="Confirmar Contraseña" name="">
+						<input type="password" class="form-control" placeholder="Confirmar Contraseña" id="idConfirm" name="confirm" required>
 					</div>
 
 				</div>
@@ -117,7 +119,7 @@
 
 					<div class="form-group col-sm-6">
 						<label class="control-label">Fecha de nacimiento</label>
-						<input type="date" class="form-control" placeholder="Fecha" name="">
+						<input type="date" class="form-control" placeholder="Fecha" name="birthdayDate" required>
 					</div>
 
 				</div>
@@ -125,7 +127,7 @@
 				<div class="row">
 					<div class="form-group col-sm-12">
 						<div class="pull-right">
-							<input type="submit" class="btn btn-aceptar" id="conti" value="Continuar >">
+							<button type="button" class="btn btn-aceptar" id="btnRegistro">Continuar ></button>
 						</div>
 					</div>
 
@@ -142,6 +144,9 @@
 
 	<script src="/js/jquery.js"></script>
 	<script src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.validate.js"></script>
+    <script src="/js/login.js"></script>
+    <script src="/js/registro.js"></script>
 
 </body>
 </html>
