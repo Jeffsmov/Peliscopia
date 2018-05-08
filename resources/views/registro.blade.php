@@ -122,6 +122,18 @@
 						<input type="date" class="form-control" placeholder="Fecha" name="birthdayDate" required>
 					</div>
 
+                    <div class="form-group col-sm-6">
+                        <label class="control-label">Pais</label>
+                        <select class="form-control" name="pais">
+                            @php
+
+                            foreach ($countries as $contry) {
+                                @endphp <option value="{{$contry->id}}">{{$contry->nombre}}</option> @php
+                            }
+                            @endphp
+                        </select> 
+                    </div>
+
 				</div>
 
 				<div class="row">

@@ -21,6 +21,7 @@ use App\like;
 use App\score;
 use App\favorito;
 
+
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -31,7 +32,8 @@ Route::get('/', function () {
 });
 
 Route::get('/registro', function () {
-    return view('registro');
+    $countries = pais::all();
+    return view('registro', ['countries' => $countries]);
 });
 
 Route::get('/perfil', function () {
@@ -85,7 +87,7 @@ Route::get('/pelicula/{whichImg}/{id}', function($whichImg, $id, Response $respo
 
 Route::get('/user/img/{id}', function($id, Response $response){
     $img = null;
-    User::getPerfilImg($id);
+    $img = User::getPerfilImg($id);
 
     if(!$img || !$img->img) return;
 
@@ -113,15 +115,14 @@ Route::post('/upload', function(Request $request) {
 
 //-- auto-completado --//
 
-Route::any('/get/paises', function(Request $request){
-    $nombre = $request->request->get('query');
 
-    return pais::getPaisesLike($nombre); //response()->json($paises)
-});
+    Route::any('/get/paises', function(Request $request){
+        $nombre = $request->request->get('query');
+        return pais::getPaisesLike($nombre); //response()->json($paises)
+    });
 
-Route::any('/get/peliculas', function(Request $request){
-    $nombre = $request->request->get('query');
-
-    return pelicula::getPeliculasLike($nombre);
-});
+    Route::any('/get/peliculas', function(Request $request){
+        $nombre = $request->request->get('query');
+        return pelicula::getPeliculasLike($nombre);
+    });
 
