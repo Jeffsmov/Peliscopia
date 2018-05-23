@@ -30,14 +30,30 @@
                 <a href="/principal" class="navbar-brand"><strong>PELISCOPIA</strong></a>
 
             </div>
-
+            @section('buscar')
             <div class="navbar-form navbar-left hidden-xs" role="search">
-                <div class="form-group">
+                <div class="form-group col-md-12">
                     <input type="text" class="form-control" placeholder="Search"> 
                     <button class="btn btn-default hidden-xs"><span class="glyphicon glyphicon-search"></span></button>
                 </div>
             </div>
-
+            @show
+            @section('categorias')
+            <div class="navbar-form navbar-left hidden-xs">
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Categorias
+                    <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">Accion</a></li>
+                      <li><a href="#">Comedia</a></li>
+                      <li><a href="#">Terror</a></li>
+                      <li><a href="#">Ciencia Ficcion</a></li>
+                      <li><a href="#">Animacion</a></li>
+                      <li><a href="#">Drama</a></li>
+                    </ul>
+                </div>
+            </div>
+            @show
             <div class="navbar-collapse collapse">
                  <ul class="nav navbar-nav navbar-right">
 
@@ -55,8 +71,9 @@
 
                     <li class="hidden-xs"><a href="/configuracion"><span title="Configuración" class="glyphicon glyphicon-cog"></span></a></li>
                     <li class="hidden-sm hidden-md hidden-lg hidden-xl"><a href="/configuracion"><span class="glyphicon glyphicon-cog"></span>&nbsp;&nbsp;&nbsp;Configuración</a></li>
-
+                    @section('cerrarsesion')
                     <li class="hidden-xs"><a href="/close"><span title="Cerrar Sesion" class="glyphicon glyphicon-off"></span></a></li>
+                    @show
                     <li class="hidden-sm hidden-md hidden-lg hidden-xl"><a href="/close"><span class="glyphicon glyphicon-off"></span>&nbsp;&nbsp;&nbsp;Cerrar Sesion</a></li>
 
                  </ul>
@@ -96,33 +113,99 @@
             <div class="col-sm-offset-1 col-sm-6 col-sm-offset-right-1 text-left row"> 
 
                 <div class="col-xs-offset-1 hidden-xl hidden-lg hidden-md hidden-sm"></div>
-
+                @section('foto-pelicula')
                 <div class="row col-sm-12 col-xs-10 col-xs-offset-1 col-sm-offset-0">
                     <img class="col-md-2 img-responsive vcenter pull-left hidden-sm hidden-xs" src="/img/pelicula.jpg">
-
+                    @show
                     <div class="col-md-10 row">
-
-                        <div class="row">
-                            <div class="col-md-12"> <a href="/">Ready Player One</a> <a href="/" class="more-reviews">(Más reviews)</a> </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-12"> <a href="/" class="more-reviews">User</a> <a href="/" class="more-reviews">(Más reviews)</a> <span class="more-reviews pull-right">2018-04-28</span></div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-12">Rating: 10</div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-12">Cuando el creador de un mundo de realidad virtual llamado OASIS muere, lanza un video en el que desafía a todos los usuarios de OASIS a encontrar su Huevo de Pascua, que le dará fortuna al buscador.</div>
-                        </div>
-
-                        <div class="row">
-                            <div class="form-group col-md-12 text-right more-reviews">
-                                <a href="/">Comentarios</a> <a href="/">Algo más</a>
+                        <div class="head">
+                            <div class="row">
+                                @section('nombre-pelicula')
+                                <div class="col-md-12"> <a href="/">Ready Player One</a> <a href="/" class="more-reviews">(Más reviews)</a><a href="  "></a> </div>
+                                @show
+                            </div>
+                            
+                            <div class="row">
+                                @section('datos-usuario')
+                                <div class="col-md-12"> <a href="/" class="more-reviews">User</a> <a href="/" class="more-reviews">(Más     reviews)</a> <span class="more-reviews pull-right">2018-04-28</span></div>
+                                @show
                             </div>
                         </div>
+                        <div class="cont-reseña">
+                            <div class="row">
+                                @section('rating-usuario')
+                                <div class="col-md-12">Rating: 10</div>
+                                @show
+                            </div>
+    
+                            <div class="row">
+                                @section('reseña-general')
+                                <div class="col-md-12">Cuando el creador de un mundo de realidad virtual llamado OASIS muere, lanza un  video en el que desafía a todos los usuarios de OASIS a encontrar su Huevo de Pascua, que le dará fortuna    al buscador.</div>
+                                @show
+                            </div>
+                        </div>
+                        <br>
+                        @section('like')
+                         <div class="row btnLike">
+                            <a href="#" class="like"><img title="Like" class="col-md-2 img-responsive vcenter pull-left hidden-sm hidden-xs" src="/img/like-peliscopia.png"></a>
+                            <p>10</p>
+                        </div>
+                        @show
+                        @section('comentario-reseña')
+                        <div class="form-group  has-feedback">
+                            <label class="control-label" for="inputSuccess2">Comenta</label>
+                            <input type="text" class="form-control" id="inputSuccess2" aria-describedby="inputSuccess2Status">
+                            <span class="glyphicon glyphicon-pencil form-control-feedback" aria-hidden="true"></span>
+                            <span id="inputSuccess2Status" class="sr-only">(success)</span>
+                        </div>
+                        @show
+                        <div id="comments-container" class="form-group col-md-12 text-right more-reviews">
+                            <ul class="comments-list">
+                                <li>
+                                    <div class="comment-main-level">
+                                        <!--Avatar-->
+                                        @section('foto-usuario-comentario')
+                                       <div class="comment-avatar"><img src="/img/user.ico" alt=""></div>  
+                                       @show
+                                       <!--Contenedor comentario--> 
+                                       <div class="comment-box">
+                                        @section('usuario-comentario')
+                                            <div class="comment-head">
+                                                <h6 class="comment-name by-autor">Arturo Gonzalez</h6>
+                                            </div>
+                                            @show
+                                            @section('contenido-comentario')
+                                            <div class="comment-content">
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                                consequat.
+                                            </div> 
+                                            @show                                              
+                                       </div>                                     
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="comment-main-level">
+                                        <!--Avatar-->
+                                       <div class="comment-avatar"><img src="/img/user.ico" alt=""></div>  
+                                       <!--Contenedor comentario--> 
+                                       <div class="comment-box">
+                                            <div class="comment-head">
+                                                <h6 class="comment-name by-autor">Arturo Gonzalez</h6>
+                                            </div>
+                                            <div class="comment-content">
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                                consequat.
+                                            </div>                                               
+                                       </div>                                     
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        
 
                     </div>
 

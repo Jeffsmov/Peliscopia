@@ -89,7 +89,7 @@
 <!-- Fin Header -->
 
 <!-- Primera seccion -->
-    <div class="container">
+    <div class="container-categorias">
 
         <div class="row centrado">
             <div class="col-lg-6 col-lg-offset-3">
@@ -99,46 +99,46 @@
         </div>
 
         <div class="row">
-            <div class="centrado">
+            <div id="seccion" class="centrado">
                 <div class="col-md-4 col-sm-4">
                     <img class="img-circle" src="/img/accion_2.png" width="140px">
-                    <h4>Accion</h4>
+                    <h4 id="text-section">Accion</h4>
                 </div>
             </div>
 
             <div class="centrado">
-                <div class="col-md-4 col-sm-4">
+                <div id="seccion" class="col-md-4 col-sm-4">
                     <img class="img-circle" src="/img/comedia.png" width="140px">
-                    <h4>Comedia</h4>
+                    <h4 id="text-section">Comedia</h4>
                 </div>
             </div>
         
             <div class="centrado">
-                <div class="col-md-4 col-sm-4">
+                <div id="seccion" class="col-md-4 col-sm-4">
                     <img class="img-circle" src="/img/terror.png" width="140px">
-                    <h4>Terror</h4>
+                    <h4 id="text-section">Terror</h4>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="centrado">
+            <div id="seccion" class="centrado">
                 <div class="col-md-4 col-sm-4">
                     <img class="img-circle" src="/img/cienciaficcion.png" width="140px">
-                    <h4>Ciencia Ficcion</h4>
+                    <h4 id="text-section">Ciencia Ficcion</h4>
                 </div>
             </div>
 
             <div class="centrado">
-                <div class="col-md-4 col-sm-4">
+                <div id="seccion" class="col-md-4 col-sm-4">
                     <img class="img-circle" src="/img/animacion.png" width="140px">
-                    <h4>Animacion</h4>
+                    <h4 id="text-section">Animacion</h4>
                 </div>
             </div>
 
             <div class="centrado">
-                <div class="col-md-4 col-sm-4">
+                <div id="seccion" class="col-md-4 col-sm-4">
                     <img class="img-circle" src="/img/drama.jpg" width="140px">
-                    <h4>Drama</h4>
+                    <h4 id="text-section">Drama</h4>
                 </div>
             </div>
         </div>
@@ -169,15 +169,15 @@
                   <!-- Wrapper for slides -->
                   <div class="carousel-inner centrado" role="listbox">
                         <div class="item active">
-                          <h3>Star Wars</h3>
+                          <h2>Star Wars</h2>
                           <img class="img-item" src="/img/1.jpeg" alt="...">
                         </div>
                         <div class="item">
-                          <h3>Scott Pilgrim</h3>
+                          <h2>Scott Pilgrim</h2>
                           <img class="img-item" src="/img/4.jpg" alt="...">
                         </div>
                         <div class="item">
-                          <h3>My Little Pony</h3>
+                          <h2>My Little Pony</h2>
                           <img class="img-item" src="/img/5.jpg" alt="...">
                         </div>
                   </div>

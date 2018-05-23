@@ -57,7 +57,8 @@ Route::get('/reseña/id', function () {
 });
 
 Route::get('/configuracion', function () {
-    return view('configuracion');
+    $countries = pais::all();
+    return view('configuracion', ['countries' => $countries]);
 });
 
 Route::post('/login', function () {

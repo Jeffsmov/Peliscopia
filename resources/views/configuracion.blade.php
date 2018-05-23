@@ -85,23 +85,60 @@
 
                         <div class="modal-header">
                             <br>
-                            <h2 class="modal-title text-center">Configurac&iacute;on</h2>
+                            <blockquote>
+                                <h2 class="modal-title text-center">Configurac&iacute;on</h2>
+                            </blockquote>
                             <br>
                             <div class="modal-body">
 
                                 <form action="action/setting" method="post">
 
                                     {{ csrf_field() }}
+                                    @section('cambiarfoto-img')
+                                    <div class="form-group col-md-10">
+                                        <img src="/img/cavani.png" class="col-md-4 img-responsive vcenter pull-left hidden-sm hidden-xs col-md-offset-6" alt="Responsive image">
+                                    </div>
+                                    @show
+                                    @section('cambiarfoto-btn')
+                                    <div id="file" class="form-group col-md-12">
+                                        <label id="cambiarFoto" for="changepic">Cambia tu foto</label>
+                                        <input type="file"  id="changepic">
+                                    </div>
+                                    @show
+                                    @section('cambiardatos')
                                     <div class="form-group">
-                                        <label for="tituloPelicula">Pelicula</label>
-                                        <input type="text" class="form-control" id="tituloPelicula" placeholder="Pelicula" required="true">
+                                        <label class="col-md-12" for="NombreUser">Nombre</label>
+                                        <input type="text" class="form-control" id="NombreUser" placeholder="Nombre" required="true">
                                     </div>
                                     <div class="form-group">
-                                        <label for="resenaValue">Reseña</label>
-                                        <textarea class="form-control" rows="5" id="resenaValue" placeholder="Reseña" required="true"></textarea>
+                                        <label for="Email">Correo</label>
+                                        <input type="text" class="form-control" id="Email" placeholder="Correo" required="true">
                                     </div>
-
+                                    <div class="form-group">
+                                        <label for="Password">Contraseña</label>
+                                        <input type="password" class="form-control" id="Password" placeholder="Contraseña" required="true">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Fecha de nacimiento</label>
+                                        <input type="date" class="form-control" placeholder="Fecha" name="birthdayDate" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Pais</label>
+                                        <select class="form-control" name="pais">
+                                            @php
+                
+                                            foreach ($countries as $contry) {
+                                                @endphp <option value="{{$contry->id}}">{{$contry->nombre}}</option> @php
+                                            }
+                                            @endphp
+                                        </select> 
+                                    </div>
+                                    @show
+                                    
+									@section('btn-guardar')
                                     <button class="btn btn-default pull-right">Salvar</button>
+                                    @show
+                                    <br>
                                     
                                 </form>
 

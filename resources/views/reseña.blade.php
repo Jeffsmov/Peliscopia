@@ -27,14 +27,14 @@
                 <a href="/principal" class="navbar-brand"><strong>PELISCOPIA</strong></a>
 
             </div>
-
+            @section('buscar')
             <div class="navbar-form navbar-left hidden-xs" role="search">
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Search"> 
                     <button class="btn btn-default hidden-xs"><span class="glyphicon glyphicon-search"></span></button>
                 </div>
             </div>
-
+            @show
             <div class="navbar-collapse collapse">
                  <ul class="nav navbar-nav navbar-right">
 
@@ -100,16 +100,21 @@
                                 <form action="action/review" method="post">
 
                                     {{ csrf_field() }}
+                                    @section('reseña-nombrepelicula')
                                     <div class="form-group">
                                         <label for="tituloPelicula">Pelicula</label>
                                         <input type="text" class="form-control" id="tituloPelicula" placeholder="Pelicula" required="true">
                                     </div>
+                                    @show
+                                    @section('reseña-contenidoreseña')
                                     <div class="form-group">
                                         <label for="resenaValue">Reseña</label>
                                         <textarea class="form-control" rows="5" id="resenaValue" placeholder="Reseña" required="true"></textarea>
                                     </div>
-
+                                    @show
+                                    @section('subirreseña')
                                     <button class="btn btn-default pull-right">Submit</button>
+                                    @show
                                 </form>
 
                             </div>
