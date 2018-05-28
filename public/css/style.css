@@ -194,6 +194,10 @@ footer {
 	margin: 0px;
 }
 
+.social-icons{
+	font-size:24px;
+}
+
 /* bootstrap right offset */
 	.col-xs-offset-right-12 {
 	  margin-right: 100%;
@@ -358,4 +362,3 @@ footer {
 	  }
 	}
 /* bootstrap right offset */
-

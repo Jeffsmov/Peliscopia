@@ -66,6 +66,18 @@
                                         <input name="nombre" type="text" class="form-control" id="NombreUser" value="{{session('name')}}" placeholder="Nombre" required="true">
                                     </div>
                                     <div class="form-group">
+                                        <label class="control-label" for="bio">Bio</label>
+                                        <input name="bio" type="text" class="form-control" id="bio" value="{{$bio}}" placeholder="Un poco sobre ti..." required="true">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" for="face">Facebook</label>
+                                        <input name="facebook" type="text" class="form-control" id="face" value="{{$facebook}}" placeholder="facebook.com/">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" for="twitter">Twitter</label>
+                                        <input name="twitter" type="text" class="form-control" id="twitter" value="{{$twitter}}" placeholder="twitter.com/">
+                                    </div>
+                                    <div class="form-group">
                                         <label class="control-label" for="Email">Correo</label>
                                         <input type="text" name="email" class="form-control" id="Email" placeholder="Correo" value="{{$userMail}}" disabled required="true">
                                     </div>

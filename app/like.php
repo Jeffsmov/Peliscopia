@@ -3,11 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class like extends Model
 {
     protected $table = 'like';
-    use SoftDeletingTrait;
+    use SoftDeletes;
     
 	public static function addLike($idPeli, $idUser){
 		$like = new like;

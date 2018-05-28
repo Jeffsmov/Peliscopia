@@ -3,11 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class favorito extends Model
 {
     protected $table = 'favorito';
-    use SoftDeletingTrait;
+    use SoftDeletes;
 
 	public static function addFavorito($idPeli, $idUser){
 		$favorito = new favorito;

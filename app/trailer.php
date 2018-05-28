@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class trailer extends Model
 {
     protected $table = 'trailer';
-    use SoftDeletingTrait;
+    use softDeletes;
 
 	public static function addTrailer($idPeli, $link){
 		$trailer = new trailer;

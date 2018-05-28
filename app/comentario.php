@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class comentario extends Model
 {
     protected $table = 'comentario';
-    use SoftDeletingTrait;
+    use softDeletes;
     
 	public static function addComentario($idReview, $idUser, $comment){
 		$comentario = new comentario;

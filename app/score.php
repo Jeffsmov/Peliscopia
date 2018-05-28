@@ -3,11 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class score extends Model
 {
     protected $table = 'score';
-    use SoftDeletingTrait;
+    use SoftDeletes;
 
 	public static function addScore($idPeli, $idUser, $theScore){
 		$score = new score;

@@ -56,8 +56,8 @@
                         </div>
                     </div>
 
-                    <li class="hidden-xs"><a href="/perfil" class="img-logo"><img title="{{$nameUser}}" class="img-logo vcenter" src="/user/img/{{$idUser}}"></a></li>
-                    <li class="hidden-sm hidden-md hidden-lg hidden-xl"><a href="/perfil"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;{{$nameUser}}</a></li>
+                    <li class="hidden-xs"><a href="/perfil/{{$idUser}}" class="img-logo"><img title="{{$nameUser}}" class="img-logo vcenter" src="/user/img/{{$idUser}}"></a></li>
+                    <li class="hidden-sm hidden-md hidden-lg hidden-xl"><a href="/perfil/{{$idUser}}"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;{{$nameUser}}</a></li>
 
                     <li class="hidden-xs"><a href="/reseña"><span title="Escribe reseña" class="glyphicon glyphicon-pencil"></span></a></li>
                     <li class="hidden-sm hidden-md hidden-lg hidden-xl"><a href="/reseña"><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;&nbsp;Escribe reseña</a></li>

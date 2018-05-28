@@ -49,11 +49,15 @@ Route::get('/registro', function () {
     return view('registro', ['countries' => $countries]);
 });
 
-Route::get('/perfil', function () {
+Route::get('/perfil/{id}', function ($id) {
     if (!session()->has('id')) {
         return redirect('/');
     }
-    return view('perfil');
+    $user = User::find($id);
+    if($user==null)
+        return redirect('/');
+
+    return view('perfil',['user' => $user]);
 });
 
 Route::get('/movie', function () {
@@ -90,9 +94,12 @@ Route::get('/configuracion', function () {
     }
     $countries = pais::all();
 
-    $user = User::where('id', session('id'))->first(['email']);
+    $user = User::find(session('id'));
 
-    return view('configuracion', ['countries' => $countries, 'userMail' => $user->email]);
+    return view('configuracion', ['countries' => $countries, 'userMail' => $user->email,
+                                    'twitter' => $user->twitter,
+                                    'facebook' => $user->facebook,
+                                    'bio' => $user->bio]);
 });
 
 Route::post('/login', function (Request $request) {
@@ -137,7 +144,10 @@ Route::any('/logout', function (Request $request) {
 
 Route::post('/action/setting', function(Request $request) {
     $name = $request->input('nombre');
-    User::changeName(session('id'), $name);
+    $facebook = $request->input('facebook');
+    $twitter = $request->input('twitter');
+    $bio = $request->input('bio');
+    User::changeInfo(session('id'), $name, $facebook, $twitter, $bio);
     $user = User::where('id', session('id'))->first(['name']);
     session(['name' => $user->name]);
 

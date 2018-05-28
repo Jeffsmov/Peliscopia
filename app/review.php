@@ -3,11 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class review extends Model
 {
 	protected $table = 'review';
-    use SoftDeletingTrait;
+    use SoftDeletes;
 
 	public static function addReview($idUser, $idPeli, $score, $content){
 		$review = new review;

@@ -7,6 +7,7 @@
     <link rel="icon" type="image/png" href="/img/logo[W].png"/>
 
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="stylesheet" type="text/css" href="/css/perfil.css"> <!-- AQUI VA UNA VARIABLE PARA EL CSS DE LA PAGINA ES -->
 
@@ -43,22 +44,30 @@
 
             <div class="col-sm-3 ">
                 <div class="col-md-12" align="center">
-                    <img src="/img/cavani.png" class="img-responsive img-perfil" alt="Responsive image">
+                    <img src="/user/img/{{$user->id}}" title="{{$user->name}}" class="img-responsive img-perfil" alt="Responsive image">
                 </div>
                 <div class="col-md-12">
                     <br>
-                    <p class="text-center"><strong>Nombre</strong></p>
-                    <p class="text-center"><em>Titulo del perfil de usuario</em></p>
+                    <p class="text-center"><strong>{{$user->name}}</strong></p>
+                    <p class="text-center"><em>{{$user->bio}}</em></p>
                 </div>
 
                 <div class="col-md-12 text-center">
-                    <ul class="list-unstyled list-inline list-social-icons">
+                    <ul class="list-unstyled list-inline">
+                        @php
+                        if($user->facebook!=null || $user->facebook!=''){
+                        @endphp
                         <li>
-                            <a href="/"><i class="editIcons icon-facebook-square editSizeIcons"></i></a>
+                            <a href="https://www.facebook.com/{{$user->facebook}}" target="_blank"><i class="fa fa-facebook-square social-icons"></i></a>
                         </li>
+                        @php } @endphp
+                        @php
+                        if($user->twitter!=null || $user->twitter!=''){
+                        @endphp
                         <li>
-                            <a href="/"><i class="editIcons icon-twitter-square editSizeIcons"></i></a>
+                            <a href="https://twitter.com/{{$user->twitter}}" target="_blank"><i class="fa fa-twitter-square social-icons"></i></a>
                         </li>
+                        @php } @endphp
                     </ul>
                 </div>
             </div>

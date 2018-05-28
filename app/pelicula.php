@@ -3,12 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class pelicula extends Model
 {
 
     protected $table = "pelicula";
-    use SoftDeletingTrait;
+    use SoftDeletes;
 
 
     public static function addPelicula($nombre, $fechaLanzamiento, $portada = null, $portadaExt = "", $banner = null, $bannerExt = ""){

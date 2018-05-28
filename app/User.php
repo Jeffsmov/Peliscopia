@@ -2,17 +2,15 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Hash;
 
-class User extends Authenticatable
+class User extends Model
 {
 
-    use Notifiable;
-    use SoftDeletingTrait;
-
     protected $table = "user";
+    use SoftDeletes;
 
     public static function getPerfilImg($id){
         $us = User::where('id', $id)->first(['ftPerfil AS img','perfilExt AS ext']);
@@ -27,9 +25,12 @@ class User extends Authenticatable
         return null;
     }
 
-    public static function changeName($id, $name){
+    public static function changeInfo($id, $name, $facebook, $twitter, $bio){
         $user = User::find($id);
         $user->name = $name;
+        $user->facebook = $facebook;
+        $user->twitter = $twitter;
+        $user->bio = $bio;
         $user->save();
     }
 
@@ -63,5 +64,10 @@ class User extends Authenticatable
 
         $us->save();
     }   //User::signInUser('Jeffsmov', 'jeff.mov@gmail.com', 'lol', '1998-3-24', 136);
+        //User::signInUser('Someone Else', 'weirdShit@gmail.com', 'nop', '1998-3-24', 136);
+
+    public static function BAN($id){
+        User::find($id)->delete();
+    }
 
 }
