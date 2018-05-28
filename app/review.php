@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class review extends Model
 {
 	protected $table = 'review';
+    use SoftDeletingTrait;
 
 	public static function addReview($idUser, $idPeli, $score, $content){
 		$review = new review;

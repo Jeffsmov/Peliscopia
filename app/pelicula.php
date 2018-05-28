@@ -8,6 +8,7 @@ class pelicula extends Model
 {
 
     protected $table = "pelicula";
+    use SoftDeletingTrait;
 
 
     public static function addPelicula($nombre, $fechaLanzamiento, $portada = null, $portadaExt = "", $banner = null, $bannerExt = ""){

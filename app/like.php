@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class like extends Model
 {
     protected $table = 'like';
+    use SoftDeletingTrait;
     
 	public static function addLike($idPeli, $idUser){
 		$like = new like;

@@ -13,63 +13,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-        
-<!-- Barra Navegacion -->
-    <form id="searchForm" class="navbar-form navbar-left pull-left" role="search">
-    </form>
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
 
-                <a href="/principal"><img class="img-responsive img-logo navbar-left hidden-xs" src="/img/logo[W].png"></a>
-                <a href="/principal" class="navbar-brand"><strong>PELISCOPIA</strong></a>
-
-            </div>
-
-            <div class="navbar-form navbar-left hidden-xs" role="search">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search"> 
-                    <button class="btn btn-default hidden-xs"><span class="glyphicon glyphicon-search"></span></button>
-                </div>
-            </div>
-
-            <div class="navbar-collapse collapse">
-                 <ul class="nav navbar-nav navbar-right">
-
-                    <div class="navbar-form navbar-left hidden-sm hidden-md hidden-lg hidden-xl" role="search">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Search"> 
-                        </div>
-                    </div>
-
-                    <li class="hidden-xs"><a href="/perfil" class="img-logo"><img title="Perfil" class="img-logo vcenter" src="/img/drama.jpg"></a></li>
-                    <li class="hidden-sm hidden-md hidden-lg hidden-xl"><a href="/perfil"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;Perfil</a></li>
-
-                    <li class="hidden-xs"><a href="/reseña"><span title="Escribe reseña" class="glyphicon glyphicon-pencil"></span></a></li>
-                    <li class="hidden-sm hidden-md hidden-lg hidden-xl"><a href="/reseña"><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;&nbsp;Escribe reseña</a></li>
-
-                    <li class="hidden-xs"><a href="/configuracion"><span title="Configuración" class="glyphicon glyphicon-cog"></span></a></li>
-                    <li class="hidden-sm hidden-md hidden-lg hidden-xl"><a href="/configuracion"><span class="glyphicon glyphicon-cog"></span>&nbsp;&nbsp;&nbsp;Configuración</a></li>
-
-                    <li class="hidden-xs"><a href="/close"><span title="Cerrar Sesion" class="glyphicon glyphicon-off"></span></a></li>
-                    <li class="hidden-sm hidden-md hidden-lg hidden-xl"><a href="/close"><span class="glyphicon glyphicon-off"></span>&nbsp;&nbsp;&nbsp;Cerrar Sesion</a></li>
-
-                 </ul>
-            </div>
-
-        </div>
-    </nav>
-<!-- Fin Barra Navegacion -->
+@component('navbar', [  'idUser' => session('id'),
+                        'nameUser' => session('name')])
+@endcomponent
 
 <!-- Header -->
     <header class="container main-header ">
     </header>
 <!-- Fin Header -->
+
+<img id="tempImg" class="hidden" hidden='true' alt="oh">
 
 <!-- Content -->
     <div class="container-fluid text-center main-container">    
@@ -85,61 +39,40 @@
 
                         <div class="modal-header">
                             <br>
-                            <blockquote>
+                            <div>
                                 <h2 class="modal-title text-center">Configurac&iacute;on</h2>
-                            </blockquote>
+                            </div>
                             <br>
-                            <div class="modal-body">
+                            <div class="modal-body row">
 
-                                <form action="action/setting" method="post">
-
+                                <form action="/action/setting/img" method="post" enctype="multipart/form-data">
                                     {{ csrf_field() }}
-                                    @section('cambiarfoto-img')
-                                    <div class="form-group col-md-10">
-                                        <img src="/img/cavani.png" class="col-md-4 img-responsive vcenter pull-left hidden-sm hidden-xs col-md-offset-6" alt="Responsive image">
-                                    </div>
-                                    @show
-                                    @section('cambiarfoto-btn')
-                                    <div id="file" class="form-group col-md-12">
-                                        <label id="cambiarFoto" for="changepic">Cambia tu foto</label>
-                                        <input type="file"  id="changepic">
-                                    </div>
-                                    @show
-                                    @section('cambiardatos')
                                     <div class="form-group">
-                                        <label class="col-md-12" for="NombreUser">Nombre</label>
-                                        <input type="text" class="form-control" id="NombreUser" placeholder="Nombre" required="true">
+                                        <label id="cambiarFoto" for="changepic" class="control-label container hidden-sm hidden-xs"> 
+                                            <img src="/user/img/{{session('id')}}" data-toggle="tooltip" data-placement="right" title="Cambiar Foto" class="img-responsive rounded img-thumbnail img-medium-logo" alt="{{session('name')}}">
+                                        </label>
+                                        <input type="file" name="img" id="changepic" class="hidden" data-toggle="tooltip" data-placement="right" title="Cambiar Foto" accept=".png, .jpg, .jpeg">
+                                        <label id="cambiarFoto" for="changepic" class="control-label hidden-xl hidden-lg hidden-md"> 
+                                            <button class="btn btn-default">Cambiar Foto</button>
+                                        </label>
                                     </div>
+                                <hr>
+                                </form>
+
+                                <form action="/action/setting" method="post">
+                                    {{ csrf_field() }}
                                     <div class="form-group">
-                                        <label for="Email">Correo</label>
-                                        <input type="text" class="form-control" id="Email" placeholder="Correo" required="true">
+                                        <label class="control-label" for="NombreUser">Nombre</label>
+                                        <input name="nombre" type="text" class="form-control" id="NombreUser" value="{{session('name')}}" placeholder="Nombre" required="true">
                                     </div>
                                     <div class="form-group">
-                                        <label for="Password">Contraseña</label>
-                                        <input type="password" class="form-control" id="Password" placeholder="Contraseña" required="true">
+                                        <label class="control-label" for="Email">Correo</label>
+                                        <input type="text" name="email" class="form-control" id="Email" placeholder="Correo" value="{{$userMail}}" disabled required="true">
                                     </div>
-                                    <div class="form-group">
-                                        <label class="control-label">Fecha de nacimiento</label>
-                                        <input type="date" class="form-control" placeholder="Fecha" name="birthdayDate" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label">Pais</label>
-                                        <select class="form-control" name="pais">
-                                            @php
-                
-                                            foreach ($countries as $contry) {
-                                                @endphp <option value="{{$contry->id}}">{{$contry->nombre}}</option> @php
-                                            }
-                                            @endphp
-                                        </select> 
-                                    </div>
-                                    @show
-                                    
-									@section('btn-guardar')
-                                    <button class="btn btn-default pull-right">Salvar</button>
-                                    @show
+
+                                    <button class="btn btn-default pull-right">Cambiar informacion</button>
+
                                     <br>
-                                    
                                 </form>
 
                             </div>
@@ -178,6 +111,7 @@
 
     <script src="/js/jquery.js"></script>
     <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/config.js"></script>
 
 </body>
 </html>

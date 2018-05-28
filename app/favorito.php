@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class favorito extends Model
 {
     protected $table = 'favorito';
+    use SoftDeletingTrait;
 
 	public static function addFavorito($idPeli, $idUser){
 		$favorito = new favorito;
@@ -20,5 +21,5 @@ class favorito extends Model
     	$favorito->idUser = $idUser;
 
     	$favorito->save();
-	} //review::addFavorito(1, 1);
+	} //review::addFavorito(1, 2);
 }

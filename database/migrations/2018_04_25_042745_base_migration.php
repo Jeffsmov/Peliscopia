@@ -13,6 +13,7 @@ class BaseMigration extends Migration
      */
     public function up()
     {
+
         Schema::create('pelicula', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
@@ -122,7 +123,6 @@ class BaseMigration extends Migration
                         ->references('id')
                         ->on('pelicula');
         });
-        
         
     }
 

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class score extends Model
 {
     protected $table = 'score';
+    use SoftDeletingTrait;
 
 	public static function addScore($idPeli, $idUser, $theScore){
 		$score = new score;

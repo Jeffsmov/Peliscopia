@@ -75,10 +75,38 @@ hr{
 	height: 44px;
 }
 
+.img-medium-logo{
+	max-width: none;
+	height: 200px;
+	position: relative;
+	backface-visibility: hidden;
+}
+
+/*
+.container .btn {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -350%);
+	-ms-transform: translate(-50%, -350%);
+	background-color: #555;
+	color: white;
+	font-size: 16px;
+	padding: 12px 24px;
+	border: none;
+	cursor: pointer;
+	border-radius: 5px;
+}
+*/
+
 .vcenter {
     display: inline-block;
     vertical-align: middle;
     float: none;
+}
+
+.nop{
+	display: none;
 }
 
 /*image logo*/
