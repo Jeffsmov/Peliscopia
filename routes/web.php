@@ -49,6 +49,13 @@ Route::get('/registro', function () {
     return view('registro', ['countries' => $countries]);
 });
 
+Route::get('/principal', function () {
+    if (!session()->has('id')) {
+        return redirect('/');
+    }
+    return view('principal');
+});
+
 Route::get('/perfil/{id}', function ($id) {
     if (!session()->has('id')) {
         return redirect('/');
@@ -60,18 +67,23 @@ Route::get('/perfil/{id}', function ($id) {
     return view('perfil',['user' => $user]);
 });
 
-Route::get('/movie', function () {
+Route::get('/movie/{id}', function ($id) {
     if (!session()->has('id')) {
         return redirect('/');
     }
-    return view('movie');
+    $pelicula = pelicula::find($id);
+
+    return view('movie',['pelicula' => $pelicula]);
 });
 
-Route::get('/principal', function () {
-    if (!session()->has('id')) {
-        return redirect('/');
-    }
-    return view('principal');
+Route::get('/search/{page}', function($page, Request $request){
+    $fecha = ($request->input('fecha')==null) ? '0000-00-00' : $request->input('fecha');
+    $categoria = ($request->input('categoria')==null) ? 0 : $request->input('categoria');
+    $value = ($request->input('value')==null) ? 0 : $request->input('value');
+    $what = $request->input('what');
+
+    $result = ($what==1) ? pelicula::getSearch($page, $categoria, $fecha) : User::where('name', 'like', $value)->skip($page*10)->take(10)->get(['name', 'id']);
+    return ($what==1) ? view('searchMovie') : view('searchUser');
 });
 
 Route::get('/reseña', function () {
@@ -81,11 +93,13 @@ Route::get('/reseña', function () {
     return view('reseña');
 });
 
-Route::get('/reseña/id', function () {
+Route::get('/reseña/{id}', function ($id) {
     if (!session()->has('id')) {
         return redirect('/');
     }
-    return view('reseñaID');
+
+    $pelicula = pelicula::find($id);
+    return view('reseñaID', ['pelicula' => $pelicula]);
 });
 
 Route::get('/configuracion', function () {
@@ -154,6 +168,18 @@ Route::post('/action/setting', function(Request $request) {
     return redirect('/configuracion');
 });
 
+Route::post('/action/review', function(Request $request) {
+    $name = $request->input('nombre');
+    $facebook = $request->input('facebook');
+    $twitter = $request->input('twitter');
+    $bio = $request->input('bio');
+    User::changeInfo(session('id'), $name, $facebook, $twitter, $bio);
+    $user = User::where('id', session('id'))->first(['name']);
+    session(['name' => $user->name]);
+
+    return redirect("/reseña/$id");
+});
+
 Route::post('/action/setting/img', function(Request $request) {
     if(!$request->img->isValid())
         return 'error';
@@ -167,10 +193,6 @@ Route::post('/action/setting/img', function(Request $request) {
     unlink($photoName);
 
     return redirect('/configuracion');
-});
-
-Route::get('/upload', function() {
-    return view('upload');
 });
 
 Route::get('/pelicula/{whichImg}/{id}', function($whichImg, $id, Response $response){
@@ -211,7 +233,6 @@ Route::post('/upload', function(Request $request) {
 
     return redirect('/pelicula/portada/1');
 });
-
 
 
 //-- auto-completado --//

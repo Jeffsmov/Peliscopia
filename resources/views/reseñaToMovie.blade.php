@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-12"> <a href="/movie/{{$peliculaId}}">{{$peliculaName}}</a> <a href="/movie/{{$peliculaId}}/reviews" class="more-reviews">(Más reviews)</a><a href=""></a> </div>
         </div>
-        
+
         <div class="row">
             <div class="col-md-12"> <a href="/perfil/{{$reviewAutorId}}" class="more-reviews">{{$reviewAutorName}}</a> <a href="/perfil/{{$reviewAutorId}}/reviews" class="more-reviews">(Más reviews)</a> <a href="/search/1?fecha='{{$reviewFecha}}'"><span class="more-reviews pull-right">{{$reviewFecha}}</span></a></div>
         </div>
@@ -30,7 +30,7 @@
         <span class="glyphicon glyphicon-pencil form-control-feedback" aria-hidden="true"></span>
         <span id="inputSuccess2Status" class="sr-only">(success)</span>
     </div>
-    <div id="comments-container" class="form-group col-xs-12 row text-right more-reviews">
+	<div id="comments-container" class="form-group col-xs-12 row text-right more-reviews">
         <div class="comments-list">
         	@php
         	for($i=0;$i<1;$i++){
@@ -45,6 +45,5 @@
 			@php } @endphp
         </div>
     </div>
-    
 
 </div>
