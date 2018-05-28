@@ -156,68 +156,71 @@ Route::any('/logout', function (Request $request) {
     return redirect('/');
 });
 
-Route::post('/action/setting', function(Request $request) {
-    $name = $request->input('nombre');
-    $facebook = $request->input('facebook');
-    $twitter = $request->input('twitter');
-    $bio = $request->input('bio');
-    User::changeInfo(session('id'), $name, $facebook, $twitter, $bio);
-    $user = User::where('id', session('id'))->first(['name']);
-    session(['name' => $user->name]);
+//-- Action --//
 
-    return redirect('/configuracion');
-});
+    Route::post('/action/setting', function(Request $request) {
+        $name = $request->input('nombre');
+        $facebook = $request->input('facebook');
+        $twitter = $request->input('twitter');
+        $bio = $request->input('bio');
+        User::changeInfo(session('id'), $name, $facebook, $twitter, $bio);
+        $user = User::where('id', session('id'))->first(['name']);
+        session(['name' => $user->name]);
 
-Route::post('/action/review', function(Request $request) {
-    $name = $request->input('nombre');
-    $facebook = $request->input('facebook');
-    $twitter = $request->input('twitter');
-    $bio = $request->input('bio');
-    User::changeInfo(session('id'), $name, $facebook, $twitter, $bio);
-    $user = User::where('id', session('id'))->first(['name']);
-    session(['name' => $user->name]);
+        return redirect('/configuracion');
+    });
 
-    return redirect("/reseña/$id");
-});
+    Route::post('/action/review', function(Request $request) {
+        $name = $request->input('nombre');
+        $facebook = $request->input('facebook');
+        $twitter = $request->input('twitter');
+        $bio = $request->input('bio');
+        User::changeInfo(session('id'), $name, $facebook, $twitter, $bio);
+        $user = User::where('id', session('id'))->first(['name']);
+        session(['name' => $user->name]);
 
-Route::post('/action/setting/img', function(Request $request) {
-    if(!$request->img->isValid())
-        return 'error';
+        return redirect("/reseña/$id");
+    });
 
-    $photoName = time().$request->img->getClientOriginalName().'.'.$request->img->getClientOriginalExtension();
-    $photoName = $request->img->move(public_path('storage'), $photoName);
+    Route::post('/action/setting/img', function(Request $request) {
+        if(!$request->img->isValid())
+            return 'error';
 
-    $byteArray = file_get_contents($photoName);
-    User::changeImg(session('id'), $byteArray, $request->img->getClientOriginalExtension());
+        $photoName = time().$request->img->getClientOriginalName().'.'.$request->img->getClientOriginalExtension();
+        $photoName = $request->img->move(public_path('storage'), $photoName);
 
-    unlink($photoName);
+        $byteArray = file_get_contents($photoName);
+        User::changeImg(session('id'), $byteArray, $request->img->getClientOriginalExtension());
 
-    return redirect('/configuracion');
-});
+        unlink($photoName);
 
-Route::get('/pelicula/{whichImg}/{id}', function($whichImg, $id, Response $response){
-    $img = null;
+        return redirect('/configuracion');
+    });
 
-    if($whichImg=='portada')    $img = pelicula::getPortada($id);
-    if($whichImg=='banner')     $img = pelicula::getBanner($id);
+//-- Get Img --//
+    Route::get('/pelicula/{whichImg}/{id}', function($whichImg, $id, Response $response){
+        $img = null;
 
-    if(!$img || !$img->img) return;
+        if($whichImg=='portada')    $img = pelicula::getPortada($id);
+        if($whichImg=='banner')     $img = pelicula::getBanner($id);
 
-    $response->header('Content-Type', 'image/'.$img->ext);
-    $response->setContent($img->img);
-    return $response;
-});
+        if(!$img || !$img->img) return redirect('/img/user.ico');
 
-Route::get('/user/img/{id}', function($id, Response $response){
-    $img = null;
-    $img = User::getPerfilImg($id);
+        $response->header('Content-Type', 'image/'.$img->ext);
+        $response->setContent($img->img);
+        return $response;
+    });
 
-    if(!$img || !$img->img) return redirect('/img/user.ico');
+    Route::get('/user/img/{id}', function($id, Response $response){
+        $img = null;
+        $img = User::getPerfilImg($id);
 
-    $response->header('Content-Type', 'image/'.$img->ext);
-    $response->setContent($img->img);
-    return $response;
-});
+        if(!$img || !$img->img) return redirect('/img/logo[W].png');
+
+        $response->header('Content-Type', 'image/'.$img->ext);
+        $response->setContent($img->img);
+        return $response;
+    });
 
 Route::post('/upload', function(Request $request) {
     if(!$request->img->isValid())

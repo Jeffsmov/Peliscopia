@@ -4,6 +4,8 @@
 	<title>Reseña</title>
 	<meta charset="utf-8">
 
+    <link rel="icon" type="image/png" href="/img/logo[S].png"/>
+
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="stylesheet" type="text/css" href="/css/resena.css">

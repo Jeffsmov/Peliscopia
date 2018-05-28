@@ -12,7 +12,7 @@
                     <span class="icon-bar"></span>
                 </button>
 
-                <a href="/principal"><img class="img-responsive img-logo navbar-left hidden-xs" src="/img/logo[W].png"></a>
+                <a href="/principal"><img class="img-responsive img-logo navbar-left hidden-xs" src="/img/logo[S].png"></a>
                 <a href="/principal" class="navbar-brand"><strong>PELISCOPIA</strong></a>
 
             </div>
