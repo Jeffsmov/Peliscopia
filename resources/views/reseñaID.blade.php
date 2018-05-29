@@ -66,17 +66,16 @@
                 <div class="row col-sm-12 col-xs-10 col-xs-offset-1 col-sm-offset-0">
 
                     @php
-                    $review = 'Cuando el creador de un mundo de realidad virtual llamado OASIS muere, lanza un video en el que desafía a todos los usuarios de OASIS a encontrar su Huevo de Pascua, que le dará fortuna al buscador.';
                     @endphp
-                    @component('reseñaFromUser', [  'peliculaId' => 1,
-                                                    'peliculaName' => 'Ready Player One',
-                                                    'reviewAutorId' => 2,
-                                                    'reviewAutorName' => 'Jeffsmov',
-                                                    'review' => $review,
-                                                    'reviewFecha' => '2018-04-28',
-                                                    'reviewRating' => 10,
-                                                    'reviewLikeCounts' => 11,
-                                                    'comentarios' => null])
+                    @component('reseñaFromUser', [  'peliculaId' => $pelicula->id,
+                                                    'peliculaName' => $pelicula->id,
+                                                    'reviewAutorId' => $autor->id,
+                                                    'reviewAutorName' => $autor->name,
+                                                    'review' => $review->content,
+                                                    'reviewFecha' => $review->created_at,
+                                                    'reviewRating' => $review->score,
+                                                    'reviewLikeCounts' => 0,
+                                                    'comentarios' => $comentarios])
                     @endcomponent
                 </div>  
 

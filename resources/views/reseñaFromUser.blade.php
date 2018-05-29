@@ -1,3 +1,6 @@
+@php 
+$reviewFecha = date('Y-m-d', strtotime($reviewFecha));
+@endphp
 <img class="col-md-2 img-responsive vcenter pull-left hidden-sm hidden-xs" src="/user/img/{{$reviewAutorId}}">
 
 <div class="col-md-10 row">
@@ -28,14 +31,11 @@
     <div id="comments-container" class="form-group col-md-12 text-right more-reviews">
         <div class="comments-list">
         	@php
-        	for($i=0;$i<1;$i++){
-
-	        	$comentario = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat';
-
+        	foreach($comentarios as $comentario){
 	        	@endphp
-				@component('comment', [ 'comentario' => $comentario,
-                                        'comentarioUserId' => 2,
-                                        'comentarioUserName' => "Jeffsmov"])
+				@component('comment', [ 'comentario' => $comentario->comment,
+                                        'comentarioUserId' => $comentario->idUser,
+                                        'comentarioUserName' => User::find($comentario->idUser)->name])
 				@endcomponent
 			@php } @endphp
         </div>

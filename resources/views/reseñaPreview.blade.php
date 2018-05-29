@@ -1,3 +1,6 @@
+@php 
+$reviewFecha = date('Y-m-d', strtotime($reviewFecha));
+@endphp
 <img class="col-md-2 img-responsive vcenter pull-left hidden-sm hidden-xs" src="/pelicula/portada/{{$peliculaId}}">
 
 <div class="col-md-10 row">

@@ -13,11 +13,12 @@ class review extends Model
 	public static function addReview($idUser, $idPeli, $score, $content){
 		$review = new review;
 
-		$repetido = review::where([['idUser',$idUser], 
-			['idPeli', $idPeli]])->first();
+		$repetido = review::where([   ['idUser', $idUser], 
+			                          ['idPeli', $idPeli]
+                                  ])->first();
 
     	if($repetido) return;
-
+        
     	$review->idUser = $idUser;
     	$review->idPeli = $idPeli;
 
@@ -25,6 +26,8 @@ class review extends Model
     	$review->content = $content;
 
     	$review->save();
+
+        return $review->id;
 	} //review::addReview(1, 1, 10, 'Shit my fuck up');
 
 

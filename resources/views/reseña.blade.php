@@ -53,21 +53,29 @@
                                 <form action="action/review" method="post">
 
                                     {{ csrf_field() }}
-                                    @section('reseña-nombrepelicula')
                                     <div class="form-group">
                                         <label for="tituloPelicula">Pelicula</label>
-                                        <input type="text" class="form-control" id="tituloPelicula" placeholder="Pelicula" required="true">
+                                        <input type="text" class="form-control" id="tituloPelicula" placeholder="Pelicula" name="title" required="true">
                                     </div>
-                                    @show
-                                    @section('reseña-contenidoreseña')
+                                    <div class="form-group">
+                                        <label for="reviewScore">Score</label>
+                                        <select class="form-control" name="score" id="reviewScore">
+                                        @php
+                                            for ($i=1;$i<=10;$i++) {
+                                            @endphp 
+                                                <option value="{{$i}}">
+                                                    {{$i}}
+                                                </option> 
+                                            @php
+                                            }
+                                        @endphp
+                                        </select> 
+                                    </div>
                                     <div class="form-group">
                                         <label for="resenaValue">Reseña</label>
-                                        <textarea class="form-control" rows="5" id="resenaValue" placeholder="Reseña" required="true"></textarea>
+                                        <textarea class="form-control" rows="5" id="resenaValue" placeholder="Reseña" name="review" required="true"></textarea>
                                     </div>
-                                    @show
-                                    @section('subirreseña')
                                     <button class="btn btn-default pull-right">Submit</button>
-                                    @show
                                 </form>
 
                             </div>
