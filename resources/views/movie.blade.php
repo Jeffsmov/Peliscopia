@@ -7,6 +7,7 @@
     <link rel="icon" type="image/png" href="/img/logo[S].png"/>
 
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="stylesheet" type="text/css" href="/css/movie.css"> <!-- AQUI VA UNA VARIABLE PARA EL CSS DE LA PAGINA ES -->
 
@@ -50,6 +51,13 @@
                     <p class="text-center"><strong>{{$pelicula->name}}</strong></p>
                     <p class="text-center"><em>{{$pelicula->des}}</em></p>
                 </div>
+
+                <div class="col-md-12 text-center">
+                    <ul class="list-unstyled list-inline">
+                        <span class="glyphicon glyphicon-heart"></span>
+                    </ul>
+                </div>
+
             </div>
 
         <!-- Información de la pelicula -->
@@ -63,22 +71,17 @@
             <!-- Reseña -->
 
                 <div class="row col-sm-12 col-xs-10 col-xs-offset-1 col-sm-offset-0">
-
                     @php
-                    $review = 'Cuando el creador de un mundo de realidad virtual llamado OASIS muere, lanza un video en el que desafía a todos los usuarios de OASIS a encontrar su Huevo de Pascua, que le dará fortuna al buscador.';
-                    for($i=0;$i<1;$i++){
+                    if(isset($reviews) && $reviews!=null){
+                    foreach($reviews as $review){
                         @endphp
-                        @component('reseñaFromUser', [  'peliculaId' => 1,
-                                                        'peliculaName' => 'Ready Player One',
-                                                        'reviewAutorId' => 2,
-                                                        'reviewAutorName' => 'Jeffsmov',
+                        @component('reseñaFromUser', [  'pelicula' => $pelicula,
                                                         'review' => $review,
-                                                        'reviewFecha' => '2018-04-28',
-                                                        'reviewRating' => 10,
-                                                        'reviewLikeCounts' => 11,
-                                                        'comentarios' => null])
+                                                        'autor' => App\User::find($review->idUser),
+                                                        'reviewLikeCounts' => 0,
+                                                        'comentarios' => App\comentario::where('idReview',$review->id)->get()])
                         @endcomponent
-                    @php } @endphp
+                    @php } } @endphp
                 </div>            
 
             </div>

@@ -61,7 +61,7 @@
                                         <label for="reviewScore">Score</label>
                                         <select class="form-control" name="score" id="reviewScore">
                                         @php
-                                            for ($i=1;$i<=10;$i++) {
+                                            for ($i=1;$i<=5;$i++) {
                                             @endphp 
                                                 <option value="{{$i}}">
                                                     {{$i}}

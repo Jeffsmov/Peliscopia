@@ -85,20 +85,16 @@
                 <div class="row col-sm-12 col-xs-10 col-xs-offset-1 col-sm-offset-0">
 
                     @php
-                    $review = 'Cuando el creador de un mundo de realidad virtual llamado OASIS muere, lanza un video en el que desafía a todos los usuarios de OASIS a encontrar su Huevo de Pascua, que le dará fortuna al buscador.';
-                    for($i=0;$i<1;$i++){
+                    if(isset($reviews) && $reviews!=null){
+                    foreach($reviews as $review){
                         @endphp
-                        @component('reseñaToMovie', [   'peliculaId' => 1,
-                                                        'peliculaName' => 'Ready Player One',
-                                                        'reviewAutorId' => 2,
-                                                        'reviewAutorName' => 'Jeffsmov',
+                        @component('reseñaToMovie', [   'pelicula' => App\pelicula::find($review->idPeli),
                                                         'review' => $review,
-                                                        'reviewFecha' => '2018-04-28',
-                                                        'reviewRating' => 10,
-                                                        'reviewLikeCounts' => 11,
-                                                        'comentarios' => null])
+                                                        'autor' => $user,
+                                                        'reviewLikeCounts' => 0,
+                                                        'comentarios' => App\comentario::where('idReview',$review->id)->get()])
                         @endcomponent
-                    @php } @endphp
+                    @php } } @endphp
 
                 </div>            
 

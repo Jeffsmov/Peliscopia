@@ -12,6 +12,8 @@
 
     <link rel="stylesheet" type="text/css" href="/css/principalstyle.css"> 
 
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
@@ -37,7 +39,7 @@
 <!-- Fin Header -->
 
 <!-- Content -->
-    <div class="container-fluid text-center main-container">    
+    <div class="container-fluid text-center main-container no-top-margin">    
 
         <div class="row">
 
@@ -52,6 +54,13 @@
                     <p class="text-center"><strong>{{$pelicula->name}}</strong></p>
                     <p class="text-center"><em>{{$pelicula->des}}</em></p>
                 </div>
+
+                <div class="col-md-12 text-center">
+                    <ul class="list-unstyled list-inline">
+                        <span class="glyphicon glyphicon-heart"></span>
+                    </ul>
+                </div>
+
             </div>
         <!-- Información de la pelicula -->
 
@@ -64,16 +73,11 @@
 
             <!-- La Reseña -->
                 <div class="row col-sm-12 col-xs-10 col-xs-offset-1 col-sm-offset-0">
-
                     @php
                     @endphp
-                    @component('reseñaFromUser', [  'peliculaId' => $pelicula->id,
-                                                    'peliculaName' => $pelicula->id,
-                                                    'reviewAutorId' => $autor->id,
-                                                    'reviewAutorName' => $autor->name,
-                                                    'review' => $review->content,
-                                                    'reviewFecha' => $review->created_at,
-                                                    'reviewRating' => $review->score,
+                    @component('reseñaFromUser', [  'pelicula' => $pelicula,
+                                                    'review' => $review,
+                                                    'autor' => $autor,
                                                     'reviewLikeCounts' => 0,
                                                     'comentarios' => $comentarios])
                     @endcomponent
@@ -109,6 +113,7 @@
 
     <script src="/js/jquery.js"></script>
     <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/thisReview.js"></script>
 
 </body>
 </html>

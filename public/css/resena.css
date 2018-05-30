@@ -39,3 +39,7 @@ textarea {
 	}
 
 /* autocomplete */
+
+.no-top-margin{
+	margin-top: 0px;
+}

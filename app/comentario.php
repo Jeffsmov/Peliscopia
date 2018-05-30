@@ -18,6 +18,8 @@ class comentario extends Model
     	$comentario->comment = $comment;
 
     	$comentario->save();
+
+    	return $comentario;
 	} //review::addComentario(1, 1, 'fuck off');
 
 }

@@ -82,6 +82,9 @@ use Illuminate\Http\Response;
 //-- Search --//
 
     Route::get('/search/{page}', function($page, Request $request){
+        if (!session()->has('id')) {
+            return redirect('/');
+        }
         $fecha = ($request->input('fecha')==null) ? '0000-00-00' : $request->input('fecha');
         $categoria = ($request->input('categoria')==null) ? 0 : $request->input('categoria');
         $value = ($request->input('value')==null) ? 0 : $request->input('value');
@@ -101,6 +104,9 @@ use Illuminate\Http\Response;
     });
 
     Route::get('/reseña/{id}', function ($id) {
+
+        //comentario::addComentario($id, session('id'), 'Oh Fuck');
+
         if (!session()->has('id')) {
             return redirect('/');
         }
@@ -180,6 +186,10 @@ use Illuminate\Http\Response;
 //-- Action --//
 
     Route::post('/action/setting', function(Request $request) {
+        if (!session()->has('id')) {
+            return;
+        }
+
         $name = $request->input('nombre');
         $facebook = $request->input('facebook');
         $twitter = $request->input('twitter');
@@ -192,6 +202,9 @@ use Illuminate\Http\Response;
     });
 
     Route::post('/action/review', function(Request $request) {
+        if (!session()->has('id')) {
+            return;
+        }
         $title = $request->input('title');
         $review = $request->input('review');
         $score = $request->input('score');
@@ -203,6 +216,9 @@ use Illuminate\Http\Response;
     });
 
     Route::post('/action/setting/img', function(Request $request) {
+        if (!session()->has('id')) {
+            return;
+        }
         if(!$request->img->isValid())
             return 'error';
 
@@ -215,6 +231,22 @@ use Illuminate\Http\Response;
         unlink($photoName);
 
         return redirect('/configuracion');
+    });
+
+    Route::post('/action/comment', function(Request $request) {
+        if (session()->has('id')) {
+            $content = $request->input('content');
+            $review = $request->input('review');
+            $id = session('id');
+
+            $com = comentario::addComentario($review, $id, $content);
+            $comDate = date('Y-m-d', strtotime($com->created_at));
+            return response()->json([
+                                'com' => $com,
+                                'date' => $comDate,
+                                'name' => session('name')
+                            ]);
+        }
     });
 
 
