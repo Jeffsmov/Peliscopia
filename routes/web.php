@@ -80,7 +80,6 @@ use Illuminate\Http\Response;
 
 
 //-- Search --//
-
     Route::get('/search/{page}', function($page, Request $request){
         if (!session()->has('id')) {
             return redirect('/');
@@ -184,7 +183,6 @@ use Illuminate\Http\Response;
 
 
 //-- Action --//
-
     Route::post('/action/setting', function(Request $request) {
         if (!session()->has('id')) {
             return;
@@ -249,6 +247,27 @@ use Illuminate\Http\Response;
         }
     });
 
+    Route::post('/action/like', function(Request $request) {
+        if (session()->has('id')) {
+            $review = $request->input('review');
+            $id = session('id');
+
+            $yeah = like::addLike($review, $id);
+            return response()->json([
+                                'yeah' => $yeah
+                            ]);
+        }
+    });
+
+    Route::post('/action/score', function(Request $request) {
+        if (session()->has('id')) {
+            $movie = $request->input('peli');
+            $score = $request->input('score');
+            $id = session('id');
+
+            score::addScore($movie, $id, $score);
+        }
+    });
 
 //-- Get Img --//
     Route::get('/pelicula/{whichImg}/{id}', function($whichImg, $id, Response $response){
@@ -292,8 +311,6 @@ use Illuminate\Http\Response;
 
 
 //-- auto-completado --//
-
-
     Route::any('/get/paises', function(Request $request){
         $nombre = $request->request->get('query');
         return pais::getPaisesLike($nombre); //response()->json($paises)

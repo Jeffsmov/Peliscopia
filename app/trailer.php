@@ -11,16 +11,11 @@ class trailer extends Model
 
 	public static function addTrailer($idPeli, $link){
 		$trailer = new trailer;
-
-		$repetido = trailer::where([['idPeli',$idPeli], 
-			['link', $link]])->first();
-
-    	if($repetido) return;
-
+        
     	$trailer->idPeli = $idPeli;
     	$trailer->link = $link;
 
     	$trailer->save();
-	} //review::addTrailer(1, "youtube lol");
+	} //trailer::addTrailer(1, "youtube lol");
 
 }

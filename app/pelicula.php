@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class pelicula extends Model
 {
-
     protected $table = "pelicula";
     use SoftDeletes;
 

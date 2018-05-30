@@ -9,19 +9,32 @@ class like extends Model
 {
     protected $table = 'like';
     use SoftDeletes;
-    
-	public static function addLike($idPeli, $idUser){
+        
+	public static function addLike($idReview, $idUser){
 		$like = new like;
 
-		$repetido = like::where([['idPeli',$idPeli], 
-			['idUser', $idUser]])->first();
+        $repetido = like::onlyTrashed()->where([  ['idReview',$idReview], 
+                                                  ['idUser', $idUser]])->first();
+        if($repetido){
+            $repetido->deleted_at=null;
+            $repetido->save();
+            return true;
+        }
 
-    	if($repetido) return;
+        $repetido = like::where([  ['idReview',$idReview], 
+                                   ['idUser', $idUser]])->first();
+        if($repetido){
+            $repetido->delete();
+            return false;
+        }
 
-    	$like->idPeli = $idPeli;
+    	$like->idReview = $idReview;
     	$like->idUser = $idUser;
 
     	$like->save();
-	} //review::addLike(1, 1);
+
+        return true;
+
+	} //like::addLike(1, 1);
 
 }

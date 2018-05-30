@@ -14,15 +14,19 @@ class score extends Model
 		$score = new score;
 
 		$repetido = score::where([['idPeli',$idPeli], 
-			['idUser', $idUser]])->first();
+		                          ['idUser', $idUser]])->first();
 
-    	if($repetido) return;
+    	if($repetido) {
+            $repetido->score=$theScore;
+            $repetido->save();
+            return;
+        }
 
     	$score->idPeli = $idPeli;
     	$score->idUser = $idUser;
     	$score->score = $theScore;
 
     	$score->save();
-	} //review::addScore(1, 1, 10);
+	} //score::addScore(1, 1, 10);
 
 }

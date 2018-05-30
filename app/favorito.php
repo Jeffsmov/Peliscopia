@@ -13,14 +13,24 @@ class favorito extends Model
 	public static function addFavorito($idPeli, $idUser){
 		$favorito = new favorito;
 
-		$repetido = favorito::where([['idPeli',$idPeli], 
-			['idUser', $idUser]])->first();
+        $repetido = like::onlyTrashed()->where([  ['idPeli',$idPeli], 
+                                                  ['idUser', $idUser]])->first();
+        if($repetido){
+            $repetido->deleted_at=null;
+            $repetido->save();
+            return true;
+        }
 
-    	if($repetido) return;
+        $repetido = like::where([  ['idPeli',$idPeli], 
+                                   ['idUser', $idUser]])->first();
+        if($repetido){
+            $repetido->delete();
+            return false;
+        }
 
     	$favorito->idPeli = $idPeli;
     	$favorito->idUser = $idUser;
 
     	$favorito->save();
-	} //review::addFavorito(1, 2);
+	} //favorito::addFavorito(1, 2);
 }
