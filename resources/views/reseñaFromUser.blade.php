@@ -1,5 +1,7 @@
 @php 
 $reviewFecha = date('Y-m-d', strtotime($review->created_at));
+$like = (App\like::where([['idReview',$review->id], ['idUser', session('id')]])->first()) ? 'red' : 'blue';
+$reviewLikeCounts = (App\like::countLikes($review->id));
 @endphp
 <a href="/perfil/{{$autor->id}}"><img class="col-md-2 img-responsive vcenter pull-left hidden-sm hidden-xs" src="/user/img/{{$autor->id}}"></a>
 
@@ -23,9 +25,9 @@ $reviewFecha = date('Y-m-d', strtotime($review->created_at));
     <br>
 
     <div class="row">
-        <input type="hidden" value="{{$review->id}}">
         <div class="col-xs-1 pull-right text-right reviewCount col-xs-offset-right-1"><span>{{$reviewLikeCounts}}</span></div>
-        <div class="normal col-xs-1 pull-right text-right"><span class="glyphicon glyphicon-thumbs-up"></span></div>
+        <div class="normal like-button {{$like}} col-xs-1 pull-right text-right"><span class="glyphicon glyphicon-thumbs-up"></span></div>
+        <input type="hidden" value="{{$review->id}}">
     </div>
 
     <div class="form-group has-feedback col-xs-12">

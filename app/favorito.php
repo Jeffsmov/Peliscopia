@@ -13,7 +13,7 @@ class favorito extends Model
 	public static function addFavorito($idPeli, $idUser){
 		$favorito = new favorito;
 
-        $repetido = like::onlyTrashed()->where([  ['idPeli',$idPeli], 
+        $repetido = favorito::onlyTrashed()->where([  ['idPeli',$idPeli], 
                                                   ['idUser', $idUser]])->first();
         if($repetido){
             $repetido->deleted_at=null;
@@ -21,7 +21,7 @@ class favorito extends Model
             return true;
         }
 
-        $repetido = like::where([  ['idPeli',$idPeli], 
+        $repetido = favorito::where([  ['idPeli',$idPeli], 
                                    ['idUser', $idUser]])->first();
         if($repetido){
             $repetido->delete();

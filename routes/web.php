@@ -252,11 +252,23 @@ use Illuminate\Http\Response;
             $review = $request->input('review');
             $id = session('id');
 
-            $yeah = like::addLike($review, $id);
+            like::addLike($review, $id);
+            $yeah = like::countLikes($review);
             return response()->json([
-                                'yeah' => $yeah
+                                'count' => $yeah
                             ]);
         }
+    });
+
+    Route::post('/action/fav', function(Request $request) {
+        if (session()->has('id')) {
+            $idPeli = $request->input('peli');
+            $id = session('id');
+
+            favorito::addFavorito($idPeli, $id);
+            return 'true';
+        }
+        return 'false';
     });
 
     Route::post('/action/score', function(Request $request) {

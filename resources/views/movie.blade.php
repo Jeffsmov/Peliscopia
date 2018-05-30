@@ -1,3 +1,6 @@
+@php
+$fav = (App\favorito::where([['idPeli',$pelicula->id], ['idUser', session('id')]])->first()) ? 'red-color' : 'grey-color';
+@endphp
 <!Doctype html>
 <html>
 <head>
@@ -10,6 +13,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="stylesheet" type="text/css" href="/css/movie.css"> <!-- AQUI VA UNA VARIABLE PARA EL CSS DE LA PAGINA ES -->
+    
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -54,8 +59,29 @@
 
                 <div class="col-md-12 text-center">
                     <ul class="list-unstyled list-inline">
-                        <span class="glyphicon glyphicon-heart"></span>
+                        <input type="hidden" value="{{$pelicula->id}}">
+                        <span id="fav" class="glyphicon glyphicon-heart {{$fav}}"></span>
                     </ul>
+                </div>                
+                <div class="col-md-12 text-center">
+                    <label for="reviewScore">Score</label>
+                    <input type="hidden" value="{{$pelicula->id}}">
+                    <select class="form-control" name="score" id="reviewScore">
+                    @php
+                        $sco = App\score::where([['idPeli',$pelicula->id], ['idUser', session('id')]])->first();
+                        $j = ($sco) ? $sco->score : 0;
+                        for ($i=0;$i<=5;$i++) {
+                        @endphp 
+                            <option value="{{$i}}" {{($j==$i) ? 'selected="selected"' : ''}}>
+                                {{($i==0) ? 'Sin calificacion' : $i}}
+                            </option> 
+                        @php
+                        }
+                    @endphp
+                    </select> 
+                </div>                
+                <div class="col-md-12 text-center">
+                    <br>
                 </div>
 
             </div>
@@ -78,7 +104,6 @@
                         @component('reseñaFromUser', [  'pelicula' => $pelicula,
                                                         'review' => $review,
                                                         'autor' => App\User::find($review->idUser),
-                                                        'reviewLikeCounts' => 0,
                                                         'comentarios' => App\comentario::where('idReview',$review->id)->get()])
                         @endcomponent
                     @php } } @endphp
@@ -114,6 +139,8 @@
 
     <script src="/js/jquery.js"></script>
     <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/thisReview.js"></script>
+    
 
 </body>
 </html>

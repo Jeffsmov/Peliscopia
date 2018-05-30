@@ -34,7 +34,6 @@ function writeComment(name, id, date, content, comId){
 $(document).ready( function(){
 
 	$('.commentArea').val("");
-
 	$('.commentArea').bind("enterKey", function(e){
 
 		var commentArea = $(this);
@@ -70,14 +69,97 @@ $(document).ready( function(){
 		}).always(function(){
 		    //indpendiente si fue correcta o incorrecta
 		});
-
 	});
-
 	$('.commentArea').keyup( function(e){
 		if(e.keyCode == 13)
 		{
-			$(this).trigger("enterKey");
+			var comAr = $(this);
+			if($(comAr).val().trim()!=""){
+				$(this).trigger("enterKey");
+			}
 		}
 	});
+
+	$('.like-button').on("click", function(){
+		var like_button = $(this);
+		var id = $(like_button).siblings('input').first().val();
+		var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+
+		$.ajax({
+			url: "/action/like",
+			type : "post",
+			method: "POST",
+			data: {
+				_token: CSRF_TOKEN,
+			    review : id
+			},
+			dataType: 'json',
+			async : false
+		}).done(function(data){
+
+			$(like_button).toggleClass('blue');
+			$(like_button).toggleClass('red');
+
+			$(like_button).siblings('.reviewCount').first().children('span').text(data.count);
+
+		}).fail(function(){
+		    //la respuesa es incorrecta
+		}).always(function(){
+		    //indpendiente si fue correcta o incorrecta
+		});
+	});
+
+	$('#fav').on("click", function(){
+		var fav_button = $(this);
+		var id = $(fav_button).siblings('input').first().val();
+		var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+
+		$.ajax({
+			url: "/action/fav",
+			type : "post",
+			method: "POST",
+			data: {
+				_token : CSRF_TOKEN,
+			    peli : id
+			},
+			dataType: 'json',
+			async : false
+		}).done(function(data){
+
+			$(fav_button).toggleClass('grey-color');
+			$(fav_button).toggleClass('red-color');
+
+		}).fail(function(){
+		    //la respuesa es incorrecta
+		}).always(function(){
+		    //indpendiente si fue correcta o incorrecta
+		});
+	});
+
+	$('#reviewScore').on("change", function(){
+		var score_button = $(this);
+		var score = $(score_button).val();
+		var id = $(score_button).siblings('input').first().val();
+		var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+
+		$.ajax({
+			url: "/action/score",
+			type : "post",
+			method: "POST",
+			data: {
+				_token : CSRF_TOKEN,
+			    peli : id,
+			    score: score
+			},
+			dataType: 'json',
+			async : false
+		}).done(function(data){
+
+		}).fail(function(){
+		    //la respuesa es incorrecta
+		}).always(function(){
+		    //indpendiente si fue correcta o incorrecta
+		});
+	})
 
 });

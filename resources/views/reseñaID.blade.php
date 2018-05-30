@@ -1,3 +1,6 @@
+@php
+$fav = (App\favorito::where([['idPeli',$pelicula->id], ['idUser', session('id')]])->first()) ? 'red-color' : 'grey-color';
+@endphp
 <!Doctype html>
 <html>
 <head>
@@ -9,8 +12,6 @@
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="stylesheet" type="text/css" href="/css/resena.css"> <!-- AQUI VA UNA VARIABLE PARA EL CSS DE LA PAGINA ES -->
-
-    <link rel="stylesheet" type="text/css" href="/css/principalstyle.css"> 
 
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
@@ -39,7 +40,7 @@
 <!-- Fin Header -->
 
 <!-- Content -->
-    <div class="container-fluid text-center main-container no-top-margin">    
+    <div class="container-fluid text-center main-container">    
 
         <div class="row">
 
@@ -57,8 +58,30 @@
 
                 <div class="col-md-12 text-center">
                     <ul class="list-unstyled list-inline">
-                        <span class="glyphicon glyphicon-heart"></span>
+                        <input type="hidden" value="{{$pelicula->id}}">
+                        <span id="fav" class="glyphicon glyphicon-heart {{$fav}}"></span>
                     </ul>
+                </div>
+
+                <div class="col-md-12 text-center">
+                    <label for="reviewScore">Score</label>
+                    <input type="hidden" value="{{$pelicula->id}}">
+                    <select class="form-control" name="score" id="reviewScore">
+                    @php
+                        $sco = App\score::where([['idPeli',$pelicula->id], ['idUser', session('id')]])->first();
+                        $j = ($sco) ? $sco->score : 0;
+                        for ($i=0;$i<=5;$i++) {
+                        @endphp 
+                            <option value="{{$i}}" {{($j==$i) ? 'selected="selected"' : ''}}>
+                                {{($i==0) ? 'Sin calificacion' : $i}}
+                            </option> 
+                        @php
+                        }
+                    @endphp
+                    </select> 
+                </div>                
+                <div class="col-md-12 text-center">
+                    <br>
                 </div>
 
             </div>
@@ -78,7 +101,6 @@
                     @component('reseñaFromUser', [  'pelicula' => $pelicula,
                                                     'review' => $review,
                                                     'autor' => $autor,
-                                                    'reviewLikeCounts' => 0,
                                                     'comentarios' => $comentarios])
                     @endcomponent
                 </div>  

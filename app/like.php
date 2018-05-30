@@ -34,7 +34,10 @@ class like extends Model
     	$like->save();
 
         return true;
-
 	} //like::addLike(1, 1);
+
+    public static function countLikes($id){
+        return $count = like::where('idReview', $id)->count();
+    }
 
 }
