@@ -17,7 +17,7 @@ class review extends Model
 			                          ['idPeli', $idPeli]
                                   ])->first();
 
-    	if($repetido) return;
+    	if($repetido) return $repetido->id;
         
     	$review->idUser = $idUser;
     	$review->idPeli = $idPeli;

@@ -1,8 +1,8 @@
 {{-- Blade Navbar --}}
     
 <!-- Barra Navegacion -->
-    <form id="searchForm" class="navbar-form navbar-left pull-left" role="search">
-    </form>
+<form id="searchForm" action="/search/1" class="navbar-form navbar-left pull-left" role="search" method="get">
+</form>
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
@@ -17,13 +17,12 @@
 
             </div>
             <div class="navbar-form navbar-left hidden-xs" role="search">
-                <div class="form-group col-md-12">
-                    <input type="text" class="form-control" placeholder="Search"> 
-                    <button class="btn btn-default hidden-xs"><span class="glyphicon glyphicon-search"></span></button>
+                <div class="form-group">
+                    <input type="text" class="form-control" for="searchForm" placeholder="Search"> 
                 </div>
             </div>
             <div class="navbar-form navbar-left hidden-xs">
-                <select class="form-control dropdown dropdown-toggle">
+                <select class="form-control dropdown dropdown-toggle hidden-md hidden-sm" for="searchForm">
                     <option value="0">Todas las categorias</option>
                     <option value="1">Accion</option>
                     <option value="2">Comedia</option>
@@ -31,21 +30,11 @@
                     <option value="4">Ciencia Ficcion</option>
                     <option value="5">Animacion</option>
                     <option value="6">Drama</option>
+                    <option value="7">Usuarios</option>
                 </select>
-                <!--
-                    <div class="dropdown">
-                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Categorias
-                        <span class="caret"></span></button>
-                        <ul class="dropdown-menu">
-                          <li><a href="#">Accion</a></li>
-                          <li><a href="#">Comedia</a></li>
-                          <li><a href="#">Terror</a></li>
-                          <li><a href="#">Ciencia Ficcion</a></li>
-                          <li><a href="#">Animacion</a></li>
-                          <li><a href="#">Drama</a></li>
-                        </ul>
-                    </div>
-                -->
+                <input type="date" class="form-control hidden-md hidden-sm" placeholder="Fecha" name="from" for="searchForm">
+                <span class="white hidden-md hidden-sm">-</span>
+                <input type="date" class="form-control hidden-md hidden-sm" placeholder="Fecha" name="to" for="searchForm">
             </div>
             <div class="navbar-collapse collapse">
                  <ul class="nav navbar-nav navbar-right">

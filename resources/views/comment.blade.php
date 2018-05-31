@@ -1,5 +1,5 @@
 @php 
-$comFecha = date('Y-m-d', strtotime($comentario->created_at));
+$comFecha = date('Y-m-d H:i', strtotime($comentario->created_at));
 @endphp
 
 <div class="row" id="comId{{$comentario->id}}">
@@ -14,7 +14,7 @@ $comFecha = date('Y-m-d', strtotime($comentario->created_at));
       <a href="/perfil/{{$comentario->idUser}}" class="col-xs-6 text-left">
         <h4><strong>{{App\User::find($comentario->idUser)->name}}</strong></h4>
       </a>
-      <h6 class="col-xs-6 text-right">{{$comFecha}}</h6>
+      <h6 class="col-xs-6 text-right more-reviews">{{$comFecha}}</h6>
     </div>
 
     <div class="pull-left comment">{{$comentario->comment}}</div>  

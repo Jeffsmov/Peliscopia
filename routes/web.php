@@ -53,12 +53,13 @@ use Illuminate\Http\Response;
         if (!session()->has('id')) {
             return redirect('/');
         }
-        return view('principal');
+        $reviews = review::orderBy('created_at', 'desc')->take(5)->get();
+        return view('principal', ['reviews' => $reviews]);
     });
 
 
 //-- Perfil - Movie --//
-    Route::get('/perfil/{id}', function ($id) {
+    Route::get('/perfil/{id}/{page?}', function ($id, $page = 1) {
         if (!session()->has('id')) {
             return redirect('/');
         }
@@ -66,16 +67,30 @@ use Illuminate\Http\Response;
         if($user==null)
             return redirect('/');
 
-        return view('perfil',['user' => $user]);
+        $reviews = review::where('idUser', $id)->skip(($page-1)*10)->take(10)->get();
+        $count = intval(review::where('idUser', $id)->count()/10) + 1;
+
+        return view('perfil',['user' => $user,
+                              'reviews' => $reviews,
+                              'page' => $page,
+                              'count' => $count]);
     });
 
-    Route::get('/movie/{id}', function ($id) {
+    Route::get('/movie/{id}/{page?}', function ($id, $page=1) {
         if (!session()->has('id')) {
             return redirect('/');
         }
         $pelicula = pelicula::find($id);
+        if($pelicula==null)
+            return redirect('/');
 
-        return view('movie',['pelicula' => $pelicula]);
+        $reviews = review::where('idPeli', $id)->skip(($page-1)*10)->take(10)->get();
+        $count = intval(review::where('idPeli', $id)->count()/10) + 1;
+
+        return view('movie',[ 'pelicula' => $pelicula,
+                              'reviews' => $reviews,
+                              'page' => $page,
+                              'count' => $count]);
     });
 
 
@@ -84,6 +99,7 @@ use Illuminate\Http\Response;
         if (!session()->has('id')) {
             return redirect('/');
         }
+        /*
         $fecha = ($request->input('fecha')==null) ? '0000-00-00' : $request->input('fecha');
         $categoria = ($request->input('categoria')==null) ? 0 : $request->input('categoria');
         $value = ($request->input('value')==null) ? 0 : $request->input('value');
@@ -91,18 +107,21 @@ use Illuminate\Http\Response;
 
         $result = ($what==1) ? pelicula::getSearch($page, $categoria, $fecha) : User::where('name', 'like', $value)->skip($page*10)->take(10)->get(['name', 'id']);
         return ($what==1) ? view('searchMovie') : view('searchUser');
+        */
+        return view('busqueda');
     });
 
 
 //-- Reseñas --//
-    Route::get('/reseña', function () {
+    Route::get('/reseña', function (Request $request) {
         if (!session()->has('id')) {
             return redirect('/');
         }
+
         return view('reseña');
     });
 
-    Route::get('/reseña/{id}', function ($id) {
+    Route::get('/reseña/{id}/{page?}', function ($id, $page = 1) {
 
         //comentario::addComentario($id, session('id'), 'Oh Fuck');
 
@@ -116,11 +135,14 @@ use Illuminate\Http\Response;
         
         $pelicula = pelicula::find($reseña->idPeli);
         $autor = User::find($reseña->idUser);
-        $comentarios = comentario::where('idReview', $reseña->id)->get();
+        $comentarios = comentario::where('idReview', $reseña->id)->skip(($page-1)*10)->take(10)->get();
+        $count = intval(comentario::where('idReview', $reseña->id)->count()/10) + 1;
         return view('reseñaID', ['pelicula' => $pelicula,
                                  'autor' => $autor,
                                  'review' => $reseña,
-                                 'comentarios' => $comentarios
+                                 'comentarios' => $comentarios,
+                                 'page' => $page,
+                                 'count' => $count
                                 ]
                    );
     });
@@ -210,6 +232,10 @@ use Illuminate\Http\Response;
         $idPeli = pelicula::where('name', $title)->first(['id'])->id;
         $idReview = review::addReview(session('id'), $idPeli, $score, $review);
 
+        if($idReview==null){
+            return redirect("/reseña?er=1");
+        }
+
         return redirect("/reseña/$idReview");
     });
 
@@ -280,6 +306,7 @@ use Illuminate\Http\Response;
             score::addScore($movie, $id, $score);
         }
     });
+
 
 //-- Get Img --//
     Route::get('/pelicula/{whichImg}/{id}', function($whichImg, $id, Response $response){

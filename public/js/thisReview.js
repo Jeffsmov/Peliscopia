@@ -160,6 +160,6 @@ $(document).ready( function(){
 		}).always(function(){
 		    //indpendiente si fue correcta o incorrecta
 		});
-	})
+	});
 
 });

@@ -57,7 +57,7 @@
                         @component('reseñaPreview', [   'pelicula' => App\pelicula::find($review->idPeli),
                                                         'review' => $review,
                                                         'autor' => App\User::find($review->idUser),
-                                                        'comentarios' => App\comentario::where('idReview',$review->id)->get()])
+                                                        'comentarios' => App\comentario::where('idReview',$review->id)->take(2)->get()])
                         @endcomponent
                     @php } } @endphp
                 </div>

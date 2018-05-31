@@ -1,19 +1,19 @@
 @php 
-$reviewFecha = date('Y-m-d', strtotime($review->created_at));
+$reviewFecha = date('Y-m-d H:i', strtotime($review->created_at));
 $like = (App\like::where([['idReview',$review->id], ['idUser', session('id')]])->first()) ? 'red' : 'blue';
 $reviewLikeCounts = (App\like::countLikes($review->id));
 @endphp
-<img class="col-md-2 img-responsive vcenter pull-left hidden-sm hidden-xs" src="/pelicula/portada/{{$peliculaId}}">
+<img class="col-md-2 img-responsive vcenter pull-left hidden-sm hidden-xs" src="/pelicula/portada/{{$pelicula->id}}">
 
 <div class="col-md-10 row">
 
     <div class="head">
         <div class="row">
-            <div class="col-md-12"> <a href="/movie/{{$peliculaId}}">{{$peliculaName}}</a> <a href="/movie/{{$peliculaId}}/reviews" class="more-reviews">(Más reviews)</a><a href=""></a> </div>
+            <div class="col-md-12"> <a href="/movie/{{$pelicula->id}}" class="stronger">{{$pelicula->name}}</a></div>
         </div>
-        
+
         <div class="row">
-            <div class="col-md-12"> <a href="/perfil/{{$autor->id}}" class="stronger"><strong>{{$autor->name}}</strong></a> <a href="/perfil/{{$autor->id}}/reviews" class="more-reviews">(Más reviews)</a> <a href="/search/1?fecha='{{$reviewFecha}}'"><span class="more-reviews pull-right">{{$reviewFecha}}</span></a></div>
+            <div class="col-md-12"> <a href="/perfil/{{$autor->id}}" class="stronger"><strong>{{$autor->name}}</strong></a><a href="/reseña/{{$review->id}}"><span class="more-reviews pull-right">{{$reviewFecha}}</span></a></div>
         </div>
     </div>
 

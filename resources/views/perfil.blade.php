@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="stylesheet" type="text/css" href="/css/perfil.css"> <!-- AQUI VA UNA VARIABLE PARA EL CSS DE LA PAGINA ES -->    
     
+    <meta name="page" content="{{$page}}"/>
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -93,11 +94,19 @@
                         @component('reseñaToMovie', [   'pelicula' => App\pelicula::find($review->idPeli),
                                                         'review' => $review,
                                                         'autor' => $user,
-                                                        'comentarios' => App\comentario::where('idReview',$review->id)->get()])
+                                                        'comentarios' => App\comentario::where('idReview',$review->id)->take(2)->get()])
                         @endcomponent
                     @php } } @endphp
 
-                </div>            
+                </div>    
+
+                <div class="row col-sm-12 col-xs-10 col-xs-offset-1 col-sm-offset-0">
+                    @php
+                    for($i=1;$i<=$count;$i++){
+                    @endphp
+                    <a href="/perfil/{{$user->id}}/{{$i}}">{{$i}}</a>
+                    @php } @endphp
+                </div>        
 
             </div>
 

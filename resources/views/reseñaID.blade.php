@@ -13,7 +13,8 @@ $fav = (App\favorito::where([['idPeli',$pelicula->id], ['idUser', session('id')]
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="stylesheet" type="text/css" href="/css/resena.css"> <!-- AQUI VA UNA VARIABLE PARA EL CSS DE LA PAGINA ES -->
 
-    <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <meta name="csrf-token" content="{{ csrf_token() }}"/>
+    <meta name="page" content="{{$page}}"/>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -52,7 +53,7 @@ $fav = (App\favorito::where([['idPeli',$pelicula->id], ['idUser', session('id')]
                 </div>
                 <div class="col-md-12">
                     <br>
-                    <p class="text-center"><strong>{{$pelicula->name}}</strong></p>
+                    <p class="text-center"><strong><a href="/movie/{{$pelicula->id}}" class="stronger">{{$pelicula->name}}</a></strong></p>
                     <p class="text-center"><em>{{$pelicula->des}}</em></p>
                 </div>
 
@@ -104,6 +105,14 @@ $fav = (App\favorito::where([['idPeli',$pelicula->id], ['idUser', session('id')]
                                                     'comentarios' => $comentarios])
                     @endcomponent
                 </div>  
+
+                <div class="row col-sm-12 col-xs-10 col-xs-offset-1 col-sm-offset-0">
+                    @php
+                    for($i=1;$i<=$count;$i++){
+                    @endphp
+                    <a href="/reseña/{{$review->id}}/{{$i}}">{{$i}}</a>
+                    @php } @endphp
+                </div>
 
             </div>
 

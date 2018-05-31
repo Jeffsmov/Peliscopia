@@ -1,5 +1,5 @@
 @php 
-$reviewFecha = date('Y-m-d', strtotime($review->created_at));
+$reviewFecha = date('Y-m-d H:i', strtotime($review->created_at));
 $like = (App\like::where([['idReview',$review->id], ['idUser', session('id')]])->first()) ? 'red' : 'blue';
 $reviewLikeCounts = (App\like::countLikes($review->id));
 @endphp
@@ -9,7 +9,7 @@ $reviewLikeCounts = (App\like::countLikes($review->id));
     
     <div class="head">
         <div class="row">
-            <div class="col-md-12"> <a href="/perfil/{{$autor->id}}" class="stronger"><strong>{{$autor->name}}</strong></a> <a href="/perfil/{{$autor->id}}/reviews" class="more-reviews">(Más reviews)</a> <a href="/search/1?fecha='{{$reviewFecha}}'"><span class="more-reviews pull-right">{{$reviewFecha}}</span></a></div>
+            <div class="col-md-12"> <a href="/perfil/{{$autor->id}}" class="stronger"><strong>{{$autor->name}}</strong></a><a href="/reseña/{{$review->id}}"><span class="more-reviews pull-right">{{$reviewFecha}}</span></a></div>
         </div>
     </div>
 

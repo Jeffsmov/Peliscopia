@@ -1,23 +1,21 @@
 @php 
-$reviewFecha = date('Y-m-d', strtotime($review->created_at));
+$reviewFecha = date('Y-m-d H:i', strtotime($review->created_at));
 $like = (App\like::where([['idReview',$review->id], ['idUser', session('id')]])->first()) ? 'red' : 'blue';
 $reviewLikeCounts = (App\like::countLikes($review->id));
 @endphp
-<img class="col-md-2 img-responsive vcenter pull-left hidden-sm hidden-xs" src="/pelicula/portada/{{$pelicula->}}">
+<img class="col-md-2 img-responsive vcenter pull-left hidden-sm hidden-xs" src="/pelicula/portada/{{$pelicula->id}}">
 
 <div class="col-md-10 row">
     
     <div class="head">
         <div class="row">
-            <div class="col-md-12"> <a href="/movie/{{$pelicula->id}}">{{$pelicula->name}}</a> <a href="/movie/{{$pelicula->id}}/reviews" class="more-reviews">(Más reviews)</a><a href=""></a> </div>
+            <div class="col-md-12"> <a href="/movie/{{$pelicula->id}}" class="stronger">{{$pelicula->name}}</a></div>
         </div>
 
         <div class="row">
-            <div class="col-md-12"> <a href="/perfil/{{$autor->id}}" class="stronger"><strong>{{$autor->name}}</strong></a> <a href="/perfil/{{$autor->id}}/reviews" class="more-reviews">(Más reviews)</a> <a href="/search/1?fecha='{{$reviewFecha}}'"><span class="more-reviews pull-right">{{$reviewFecha}}</span></a></div>
+            <div class="col-md-12"> <a href="/perfil/{{$autor->id}}" class="stronger"><strong>{{$autor->name}}</strong></a><a href="/reseña/{{$review->id}}"><span class="more-reviews pull-right">{{$reviewFecha}}</span></a></div>
         </div>
     </div>
-    <br>
-
     <div class="cont-reseña">
         <div class="row">
             <div class="col-md-12">Rating: {{$review->score}}</div>
@@ -26,6 +24,7 @@ $reviewLikeCounts = (App\like::countLikes($review->id));
             <div class="col-md-12">{{$review->content}}</div>
         </div>
     </div>
+    <br>
 
     <div class="row">
         <div class="col-xs-1 pull-right text-right reviewCount col-xs-offset-right-1"><span>{{$reviewLikeCounts}}</span></div>
