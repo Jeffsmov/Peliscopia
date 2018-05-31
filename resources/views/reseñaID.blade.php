@@ -15,6 +15,8 @@ $fav = (App\favorito::where([['idPeli',$pelicula->id], ['idUser', session('id')]
 
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
     <meta name="page" content="{{$page}}"/>
+    <meta name="order" content="{{$order}}"/>
+    <meta name="review" content="{{$review->id}}"/>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -102,7 +104,8 @@ $fav = (App\favorito::where([['idPeli',$pelicula->id], ['idUser', session('id')]
                     @component('reseñaFromUser', [  'pelicula' => $pelicula,
                                                     'review' => $review,
                                                     'autor' => $autor,
-                                                    'comentarios' => $comentarios])
+                                                    'comentarios' => $comentarios,
+                                                    'order' => $order])
                     @endcomponent
                 </div>  
 
@@ -110,7 +113,7 @@ $fav = (App\favorito::where([['idPeli',$pelicula->id], ['idUser', session('id')]
                     @php
                     for($i=1;$i<=$count;$i++){
                     @endphp
-                    <a href="/reseña/{{$review->id}}/{{$i}}">{{$i}}</a>
+                    <a href="/reseña/{{$review->id}}/{{$i}}?order={{$order}}">{{$i}}</a>
                     @php } @endphp
                 </div>
 

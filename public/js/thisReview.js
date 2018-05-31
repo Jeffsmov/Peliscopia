@@ -162,4 +162,10 @@ $(document).ready( function(){
 		});
 	});
 
+	$('#commentsOrder').change(function(){
+		var id = $('meta[name="review"]').attr('content');
+		var order = $('#commentsOrder').val();
+		window.location.href = "/reseña/"+id+"/1/?order="+order;
+	});
+
 });

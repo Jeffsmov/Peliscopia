@@ -10,16 +10,16 @@ $reviewLikeCounts = (App\like::countLikes($review->id));
     <div class="head">
         <div class="row">
             <div class="col-md-12"> <a href="/perfil/{{$autor->id}}" class="stronger"><strong>{{$autor->name}}</strong></a><a href="/reseña/{{$review->id}}"><span class="more-reviews pull-right">{{$reviewFecha}}</span></a></div>
+            @php
+            if(session('tipo')==1){
+            @endphp
+            <form action="/action/review/delete" method="post">
+                {{csrf_field()}}
+                <input type="hidden" name="id" value="{{$review->id}}">
+                <button class="reviewDelete pull-right btn btn-danger btn-xs col-md-1">X</button>
+            </form>
+            @php } @endphp
         </div>
-        @php
-        if(session('tipo')==1){
-        @endphp
-        <form action="/action/review/delete" method="post">
-            {{csrf_field()}}
-            <input type="hidden" name="id" value="{{$review->id}}">
-            <button class="reviewDelete pull-right btn btn-danger">X</button>
-        </form>
-        @php } @endphp
     </div>
 
 
@@ -44,6 +44,17 @@ $reviewLikeCounts = (App\like::countLikes($review->id));
         <input type="hidden" class="reviewid" value="{{$review->id}}">
         <input type="text" class="form-control commentArea" id="inputSuccess2" placeholder="Comentario..." aria-describedby="inputSuccess2Status">
     </div>
+
+@php 
+if(isset($order)){
+@endphp
+    <div class="form-group has-feedback col-xs-6 col-xs-offset-6">
+        <select class="form-control dropdown dropdown-toggle hidden-md hidden-sm" id="commentsOrder">
+            <option value="0" {{($order==0) ? 'selected="selected"' : ''}} >Antiguos</option>
+            <option value="1" {{($order==1) ? 'selected="selected"' : ''}}>Nuevos</option>
+        </select>
+    </div>
+@php } @endphp
 
     <div id="comments-container" class="form-group col-md-12 text-right more-reviews">
         <div class="comments-list" id="reviewCommentList{{$review->id}}">

@@ -118,8 +118,10 @@ use Illuminate\Http\Response;
             $count = intval($users->count()/10) + 1;
         }
         else{
-            $peliculas = pelicula::getSearch($value, $what, $from, $to, $page);
-            $count = intval($peliculas->count()/10) + 1;
+            if(is_numeric($what)){
+                $peliculas = pelicula::getSearch($value, $what, $from, $to, $page);
+                $count = intval($peliculas->count()/10) + 1;
+            }
         }
         
         return view('busqueda', ['users' => $users,
@@ -138,11 +140,10 @@ use Illuminate\Http\Response;
         if (!session()->has('id')) {
             return redirect('/');
         }
-
         return view('reseña');
     });
 
-    Route::get('/reseña/{id}/{page?}', function ($id, $page = 1) {
+    Route::get('/reseña/{id}/{page?}', function ($id, $page = 1, Request $request) {
 
         //comentario::addComentario($id, session('id'), 'Oh Fuck');
 
@@ -153,17 +154,24 @@ use Illuminate\Http\Response;
         $reseña = review::find($id);
         if($reseña==null)
             return redirect('/');
+
+        $order = ($request->order==null) ? '0' : $request->order;
         
         $pelicula = pelicula::find($reseña->idPeli);
         $autor = User::find($reseña->idUser);
-        $comentarios = comentario::where('idReview', $reseña->id)->skip(($page-1)*10)->take(10)->get();
+        $comentarios = comentario::where('idReview', $reseña->id);
+            
+        $comentarios->orderBy('created_at', ($order==1) ? 'desc' : 'ASC');
+
+        $comentarios = $comentarios->skip(($page-1)*10)->take(10)->get();
         $count = intval(comentario::where('idReview', $reseña->id)->count()/10) + 1;
         return view('reseñaID', ['pelicula' => $pelicula,
                                  'autor' => $autor,
                                  'review' => $reseña,
                                  'comentarios' => $comentarios,
                                  'page' => $page,
-                                 'count' => $count
+                                 'count' => $count,
+                                 'order' => $order
                                 ]
                    );
     });
@@ -206,13 +214,10 @@ use Illuminate\Http\Response;
             session(['tipo' => $login->tipoUsuario]);
             return redirect('/principal');
         }
-
-        session(['wrong' => 1]);
         return redirect('/');
     });
 
     Route::post('/signin', function (Request $request){
-
         $name = $request->input('nombre');
         $email = $request->input('email');
         $pass = $request->input('pass');
@@ -368,8 +373,6 @@ use Illuminate\Http\Response;
         }
     });
 
-///action/review/delete
-
     Route::post('/action/comment/delete', function(Request $request) {
         if (session()->has('id') && session('tipo')==1) {
             $id = $request->input('id');
@@ -393,6 +396,7 @@ use Illuminate\Http\Response;
         }
         return redirect('/');
     });
+
 
 //-- Get Img --//
     Route::get('/pelicula/{whichImg}/{id}', function($whichImg, $id, Response $response){
