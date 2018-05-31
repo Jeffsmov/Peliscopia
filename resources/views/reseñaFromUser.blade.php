@@ -17,7 +17,7 @@ $reviewLikeCounts = (App\like::countLikes($review->id));
         <form action="/action/review/delete" method="post">
             {{csrf_field()}}
             <input type="hidden" name="id" value="{{$review->id}}">
-            <button class="reviewDelete pull-right">X</button>
+            <button class="reviewDelete pull-right btn btn-danger">X</button>
         </form>
         @php } @endphp
     </div>

@@ -21,7 +21,7 @@ $comFecha = date('Y-m-d H:i', strtotime($comentario->created_at));
       <form action="/action/comment/delete" method="post">
         {{csrf_field()}}
         <input type="hidden" value="{{$comentario->id}}" name="id">
-        <button class="commentDelete">X</button>
+        <button class="commentDelete btn btn-danger">X</button>
       </form>
       @php } @endphp
     </div>

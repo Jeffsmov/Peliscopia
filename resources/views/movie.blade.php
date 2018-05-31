@@ -124,12 +124,13 @@ $fav = (App\favorito::where([['idPeli',$pelicula->id], ['idUser', session('id')]
 
         <!-- ADS -->
             <div class="col-sm-offset-0 col-sm-2 hidden-xs sidenav">
-                <div class="well">
-                    <p>ADS</p>
-                </div>
-                <div class="well">
-                    <p>ADS</p>
-                </div>
+                <p>Lastest followers</p>
+                @php
+                $sideLinks = App\favorito::where('idPeli', $pelicula->id)->orderBy('created_at', 'desc')->take(5)->get();
+                foreach($sideLinks as $sideLink){
+                @endphp
+                    <p><a href="/perfil/{{$sideLink->idUser}}">{{App\User::find($sideLink->idUser)->name}}</a></p>
+                @php } @endphp
             </div>
         <!-- ADS -->
 

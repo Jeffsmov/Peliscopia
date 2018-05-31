@@ -3,7 +3,7 @@ $reviewFecha = date('Y-m-d H:i', strtotime($review->created_at));
 $like = (App\like::where([['idReview',$review->id], ['idUser', session('id')]])->first()) ? 'red' : 'blue';
 $reviewLikeCounts = (App\like::countLikes($review->id));
 @endphp
-<img class="col-md-2 img-responsive vcenter pull-left hidden-sm hidden-xs" src="/pelicula/portada/{{$pelicula->id}}">
+<a href="/movie/{{$pelicula->id}}"><img class="col-md-2 img-responsive vcenter pull-left hidden-sm hidden-xs" src="/pelicula/portada/{{$pelicula->id}}"></a>
 
 <div class="col-md-10 row">
 
@@ -21,7 +21,7 @@ $reviewLikeCounts = (App\like::countLikes($review->id));
         <form action="/action/review/delete" method="post">
             {{csrf_field()}}
             <input type="hidden" name="id" value="{{$review->id}}">
-            <button class="reviewDelete pull-right">X</button>
+            <button class="reviewDelete pull-right btn btn-danger">X</button>
         </form>
         @php } @endphp
 

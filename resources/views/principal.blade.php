@@ -40,9 +40,13 @@
         <div class="row content">
 
             <div class="col-sm-2 sidenav">
-                <p><a href="/">Link</a></p>
-                <p><a href="/">Link</a></p>
-                <p><a href="/">Link</a></p>
+                <p>Newest movies</p>
+                @php
+                $sideLinks = App\pelicula::orderBy('fecha', 'desc')->take(5)->get();
+                foreach($sideLinks as $sideLink){
+                @endphp
+                    <p><a href="/movie/{{$sideLink->id}}">{{$sideLink->name}}</a></p>
+                @php } @endphp
             </div>
 
             <div class="col-sm-offset-1 col-sm-6 col-sm-offset-right-1 text-left row"> 
@@ -63,12 +67,12 @@
                 </div>
             </div>
 
-            <div class="col-sm-2 sidenav">
+            <div class="col-sm-offset-0 col-sm-2 hidden-xs sidenav">
                 <div class="well">
-                    <p>ADS</p>
+                    <p>YOUR ADS HERE</p>
                 </div>
                 <div class="well">
-                    <p>ADS</p>
+                    <p>ANOTHER ADS</p>
                 </div>
             </div>
         </div>

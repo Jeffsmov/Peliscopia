@@ -80,7 +80,7 @@
                   <form action="/action/user/delete" method="post">
                     {{csrf_field()}}
                     <input type="hidden" value="{{$user->id}}" name="id">
-                    <button class="user-Delete">BAN</button>
+                    <button class="user-Delete btn btn-danger">BAN</button>
                   </form>
                   @php } @endphp
             </div>
@@ -124,12 +124,13 @@
 
         <!-- ADS -->
             <div class="col-sm-offset-0 col-sm-2 hidden-xs sidenav">
-                <div class="well">
-                    <p>ADS</p>
-                </div>
-                <div class="well">
-                    <p>ADS</p>
-                </div>
+                <p>Lastest favorite movies</p>
+                @php
+                $sideLinks = App\favorito::where('idUser', $user->id)->orderBy('created_at', 'desc')->take(5)->get();
+                foreach($sideLinks as $sideLink){
+                @endphp
+                    <p><a href="/movie/{{$sideLink->idPeli}}">{{App\pelicula::find($sideLink->idPeli)->name}}</a></p>
+                @php } @endphp
             </div>
         <!-- ADS -->
 
