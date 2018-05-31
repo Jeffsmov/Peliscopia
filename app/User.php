@@ -18,7 +18,7 @@ class User extends Model
     }
 
     public static function login($email, $pass){
-        $login = User::where('email', $email)->first(['id', 'name', 'password']);
+        $login = User::where('email', $email)->first(['id', 'name', 'password', 'tipoUsuario']);
         if (Hash::check($pass, $login->password)){
             return $login;
         }

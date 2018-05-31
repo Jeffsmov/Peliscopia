@@ -99,16 +99,37 @@ use Illuminate\Http\Response;
         if (!session()->has('id')) {
             return redirect('/');
         }
-        /*
-        $fecha = ($request->input('fecha')==null) ? '0000-00-00' : $request->input('fecha');
-        $categoria = ($request->input('categoria')==null) ? 0 : $request->input('categoria');
-        $value = ($request->input('value')==null) ? 0 : $request->input('value');
+        $users = null;
+        $peliculas = null;
+        $count = 0;
+
+        
+        $from = ($request->input('from')==null && $request->input('from')!="" 
+            && $request->input('to')==null && $request->input('to')!="") ? '' : $request->input('from');
+
+        $to = ($request->input('from')==null && $request->input('from')!="" 
+            && $request->input('to')==null && $request->input('to')!="") ? '' : $request->input('to');
+
+        $value = ($request->input('value')==null) ? "" : $request->input('value');
         $what = $request->input('what');
 
-        $result = ($what==1) ? pelicula::getSearch($page, $categoria, $fecha) : User::where('name', 'like', $value)->skip($page*10)->take(10)->get(['name', 'id']);
-        return ($what==1) ? view('searchMovie') : view('searchUser');
-        */
-        return view('busqueda');
+        if($what==7){
+            $users = User::where('name', 'like', '%'.$value.'%')->skip(($page-1)*10)->take(10)->get();
+            $count = intval($users->count()/10) + 1;
+        }
+        else{
+            $peliculas = pelicula::getSearch($value, $what, $from, $to, $page);
+            $count = intval($peliculas->count()/10) + 1;
+        }
+        
+        return view('busqueda', ['users' => $users,
+                                 'peliculas' => $peliculas,
+                                 'count' => $count,
+                                 'page' => $page,
+                                 'value' => $value,
+                                 'what' => $what,
+                                 'from' => $from,
+                                 'to' => $to]);
     });
 
 
@@ -163,6 +184,16 @@ use Illuminate\Http\Response;
                                         'bio' => $user->bio]);
     });
 
+    Route::get('/configuracion/admin', function () {
+        if (!session()->has('id')) {
+            return redirect('/');
+        }
+        if(!session('tipo')==1)
+            return redirect('/');
+
+        return view('confiAdmin');
+    });
+
     Route::post('/login', function (Request $request) {
         $email = $request->input('email');
         $pass = $request->input('pass');
@@ -172,6 +203,7 @@ use Illuminate\Http\Response;
         if($login!=null){
             session(['id' => $login->id]);
             session(['name' => $login->name]);
+            session(['tipo' => $login->tipoUsuario]);
             return redirect('/principal');
         }
 
@@ -255,6 +287,35 @@ use Illuminate\Http\Response;
         unlink($photoName);
 
         return redirect('/configuracion');
+    });
+
+    Route::post('/action/config/admin', function(Request $request) {
+        if (!session()->has('id')) {
+            return;
+        }
+        if(!session('tipo')==1)
+            return;
+
+        if(!$request->por->isValid())
+            return 'error';        
+        if(!$request->ban->isValid())
+            return 'error';
+
+        $pelicula = pelicula::addPelicula($request->titulo, $request->fecha, $request->des, $request->cat);
+
+        $photoName = time().$request->por->getClientOriginalName().'.'.$request->por->getClientOriginalExtension();
+        $photoName = $request->por->move(public_path('storage'), $photoName);
+        $byteArray = file_get_contents($photoName);
+        pelicula::setPortada($pelicula->id, $byteArray, $request->por->getClientOriginalExtension());
+        unlink($photoName);
+
+        $photoName2 = time().$request->ban->getClientOriginalName().'.'.$request->ban->getClientOriginalExtension();
+        $photoName2 = $request->ban->move(public_path('storage'), $photoName2);
+        $byteArray2 = file_get_contents($photoName2);
+        pelicula::setBanner($pelicula->id, $byteArray2, $request->ban->getClientOriginalExtension());
+        unlink($photoName2);
+
+        return redirect("/movie/$pelicula->id");
     });
 
     Route::post('/action/comment', function(Request $request) {

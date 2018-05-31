@@ -41,13 +41,28 @@
 
 			<div class="container main-busqueda col-md-7 col-md-offset-2">
                 @php
-                for($i=0;$i<3;$i++){ @endphp
-            	@component('busquedaUsuario', ['user' => App\User::find(session('id'))])
-                @endcomponent
-                @php } @endphp
+                if(isset($users) && $users!=null){
+                foreach($users as $user){ @endphp
+                	@component('busquedaUsuario', ['user' => $user])
+                    @endcomponent
+                @php } } @endphp
+
+                @php
+                if(isset($peliculas) && $peliculas!=null){
+                foreach($peliculas as $pelicula){ @endphp
+                    @component('busquedaMovie', ['pelicula' => $pelicula])
+                    @endcomponent
+                @php } } @endphp
         	</div>
 
-			
+            <div class="row col-sm-12 col-xs-10 col-xs-offset-1 col-sm-offset-0">
+                @php
+                for($i=1;$i<=$count;$i++){
+                @endphp
+                <a href="/search/{{$i}}?value='{{$value}}'&what={{$what}}&from='{{$from}}'&to='{{$to}}'">{{$i}}</a>
+                @php } @endphp
+            </div>
+
 		</div>
 	</div>
 
@@ -59,6 +74,7 @@
 
 	<script src="/js/jquery.js"></script>
     <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/search.js"></script>
 
 </body>
 </html>

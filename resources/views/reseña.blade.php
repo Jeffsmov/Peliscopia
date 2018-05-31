@@ -116,6 +116,7 @@
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/jquery.autocomplete.js"></script>
     <script src="/js/resena.js"></script>
+    <script src="/js/search.js"></script>
 
 </body>
 </html>

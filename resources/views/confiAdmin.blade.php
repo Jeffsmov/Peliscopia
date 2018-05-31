@@ -40,50 +40,45 @@
                         <div class="modal-header">
                             <br>
                             <div>
-                                <h2 class="modal-title text-center">Configurac&iacute;on</h2>
+                                <h2 class="modal-title text-center">Agregar Pelicula</h2>
                             </div>
                             <br>
                             <div class="modal-body row">
 
-                                <form action="/action/setting/img" method="post" enctype="multipart/form-data">
+                                <form action="/action/config/admin" method="post" enctype="multipart/form-data">
                                     {{ csrf_field() }}
                                     <div class="form-group">
-                                        <label id="cambiarFoto" for="changepic" class="control-label container hidden-sm hidden-xs"> 
-                                            <img src="/user/img/{{session('id')}}" data-toggle="tooltip" data-placement="right" title="Cambiar Foto" class="img-responsive rounded img-thumbnail img-medium-logo" alt="{{session('name')}}">
-                                        </label>
-                                        <input type="file" name="img" id="changepic" class="hidden" data-toggle="tooltip" data-placement="right" title="Cambiar Foto" accept=".png, .jpg, .jpeg">
-                                        <label id="cambiarFoto" for="changepic" class="control-label hidden-xl hidden-lg hidden-md"> 
-                                            <button class="btn btn-default">Cambiar Foto</button>
-                                        </label>
-                                    </div>
-                                <hr>
-                                </form>
-
-                                <form action="/action/setting" method="post">
-                                    {{ csrf_field() }}
-                                    <div class="form-group">
-                                        <label class="control-label" for="NombreUser">Nombre</label>
-                                        <input name="nombre" type="text" class="form-control" id="NombreUser" value="{{session('name')}}" placeholder="Nombre" required="true">
+                                        <label class="control-label" for="titlePeli">Titulo</label>
+                                        <input name="titulo" type="text" class="form-control" id="titlePeli" placeholder="Titulo..." required="true">
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label" for="bio">Bio</label>
-                                        <input name="bio" type="text" class="form-control" id="bio" value="{{$bio}}" placeholder="Un poco sobre ti..." required="true">
+										<label class="control-label" for="fechaPeli">Fecha de lanzamientos</label>
+										<input type="date" class="form-control" id="fechaPeli" placeholder="Fecha" name="fecha" required>
+									</div>
+                                    <div class="form-group">
+                                        <label class="control-label" for="catPeli">Categoria</label>
+                                        <select class="form-control dropdown dropdown-toggle hidden-md hidden-sm" id="catPeli" name="cat">
+                                            <option value="1">Accion</option>
+                                            <option value="2">Comedia</option>
+                                            <option value="3">Terror</option>
+                                            <option value="4">Ciencia Ficcion</option>
+                                            <option value="5">Animacion</option>
+                                            <option value="6">Drama</option>
+                                        </select>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label" for="face">Facebook</label>
-                                        <input name="facebook" type="text" class="form-control" id="face" value="{{$facebook}}" placeholder="facebook.com/">
+                                        <label class="control-label" for="desPeli">Descripci&oacute;n</label>
+                                        <input name="des" type="text" class="form-control" id="desPeli" placeholder="Descripci&oacute;n..." required="true">
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label" for="twitter">Twitter</label>
-                                        <input name="twitter" type="text" class="form-control" id="twitter" value="{{$twitter}}" placeholder="twitter.com/">
+                                        <label class="control-label" for="porPeli">Portada</label>
+                                        <input name="por" type="file" id="porPeli" required="true" accept=".png, .jpg, .jpeg">
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label" for="Email">Correo</label>
-                                        <input type="text" name="email" class="form-control" id="Email" placeholder="Correo" value="{{$userMail}}" disabled required="true">
+                                        <label class="control-label" for="banPeli">Banner</label>
+                                        <input name="ban" type="file" id="banPeli" required="true" accept=".png, .jpg, .jpeg">
                                     </div>
-
-                                    <button class="btn btn-default pull-right">Cambiar informacion</button>
-
+                                    <button class="btn btn-default pull-right">Agregar pelicula</button>
                                     <br>
                                 </form>
 

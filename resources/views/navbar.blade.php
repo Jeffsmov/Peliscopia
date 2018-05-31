@@ -2,6 +2,10 @@
     
 <!-- Barra Navegacion -->
 <form id="searchForm" action="/search/1" class="navbar-form navbar-left pull-left" role="search" method="get">
+    <input type="hidden" id="formValue" name="value">
+    <input type="hidden" id="formWhat" name="what">
+    <input type="hidden" id="formFrom" name="from">
+    <input type="hidden" id="formTo" name="to">
 </form>
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
@@ -18,11 +22,11 @@
             </div>
             <div class="navbar-form navbar-left hidden-xs" role="search">
                 <div class="form-group">
-                    <input type="text" class="form-control" for="searchForm" placeholder="Search"> 
+                    <input type="text" class="form-control search-text" placeholder="Search"> 
                 </div>
             </div>
             <div class="navbar-form navbar-left hidden-xs">
-                <select class="form-control dropdown dropdown-toggle hidden-md hidden-sm" for="searchForm">
+                <select class="form-control dropdown dropdown-toggle hidden-md hidden-sm" id="searchWhat">
                     <option value="0">Todas las categorias</option>
                     <option value="1">Accion</option>
                     <option value="2">Comedia</option>
@@ -32,16 +36,16 @@
                     <option value="6">Drama</option>
                     <option value="7">Usuarios</option>
                 </select>
-                <input type="date" class="form-control hidden-md hidden-sm" placeholder="Fecha" name="from" for="searchForm">
-                <span class="white hidden-md hidden-sm">-</span>
-                <input type="date" class="form-control hidden-md hidden-sm" placeholder="Fecha" name="to" for="searchForm">
+                <input type="date" class="form-control hidden-md hidden-sm" placeholder="Fecha" name="from" id="searchFrom">
+                <span class="white hidden-md hidden-sm" id="fecha-fecha">-</span>
+                <input type="date" class="form-control hidden-md hidden-sm" placeholder="Fecha" name="to" id="searchTo">
             </div>
             <div class="navbar-collapse collapse">
                  <ul class="nav navbar-nav navbar-right">
 
                     <div class="navbar-form navbar-left hidden-sm hidden-md hidden-lg hidden-xl" role="search">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Search"> 
+                            <input type="text" class="form-control search-text" placeholder="Search"> 
                         </div>
                     </div>
 

@@ -148,6 +148,7 @@ $fav = (App\favorito::where([['idPeli',$pelicula->id], ['idUser', session('id')]
 
     <script src="/js/jquery.js"></script>
     <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/search.js"></script>
     <script src="/js/thisReview.js"></script>
     
 

@@ -11,7 +11,7 @@ class pelicula extends Model
     use SoftDeletes;
 
 
-    public static function addPelicula($nombre, $fechaLanzamiento, $portada = null, $portadaExt = "", $banner = null, $bannerExt = ""){
+    public static function addPelicula($nombre, $fechaLanzamiento, $des, $cat, $portada = null, $portadaExt = "", $banner = null, $bannerExt = ""){
     	$pelicula = new pelicula;
 
 		$repetido = pelicula::where([['name',$nombre], 
@@ -19,7 +19,9 @@ class pelicula extends Model
 
     	if($repetido) return;
 
-    	$pelicula->name = $nombre;
+        $pelicula->name = $nombre;
+    	$pelicula->des = $des;
+        $pelicula->cat = $cat;
     	$pelicula->fecha = $fechaLanzamiento;
 
         $pelicula->ftPortada = $portada;
@@ -30,7 +32,9 @@ class pelicula extends Model
 
     	$pelicula->save();
 
- 		//pelicula::addPelicula("Scott Pilgrim vs The World", "2010-11-5");
+        return $pelicula;
+
+ 		//pelicula::addPelicula("Scott Pilgrim vs The World", "2010-11-5", "Fuck");
     }
 
     public static function getPeliculasLike($nombre = ""){
@@ -64,6 +68,26 @@ class pelicula extends Model
     public static function getBanner($id){
         $pel = pelicula::where('id',$id)->first(['ftBanner AS img','bannerExt AS ext']);
         return $pel;
+    }
+
+    public static function getSearch($value, $what, $from, $to, $page){
+        $peliculas = null;
+        $peliculas = pelicula::where('name', 'like', '%'.$value.'%');
+
+        if($what!=0){
+            $peliculas->where('cat', $what);
+        }
+
+        if($from!=""){
+            //if(strtotime($date1) < strtotime($date2))
+            $max = (strtotime($to) < strtotime($from)) ? $from : $to;
+            $min = (strtotime($from) < strtotime($to)) ? $from : $to;
+            $peliculas->whereBetween('fecha', array(date($min), date($max)));
+            //$peliculas->whereDate('fecha','<=', date($max));
+            //$peliculas->whereDate('fecha','>=', date($min));
+        }
+
+        return $peliculas->skip(($page-1)*10)->take(10)->get();
     }
 
 
