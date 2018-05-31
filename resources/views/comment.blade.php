@@ -15,6 +15,15 @@ $comFecha = date('Y-m-d H:i', strtotime($comentario->created_at));
         <h4><strong>{{App\User::find($comentario->idUser)->name}}</strong></h4>
       </a>
       <h6 class="col-xs-6 text-right more-reviews">{{$comFecha}}</h6>
+      @php
+      if(session('tipo')==1){
+      @endphp
+      <form action="/action/comment/delete" method="post">
+        {{csrf_field()}}
+        <input type="hidden" value="{{$comentario->id}}" name="id">
+        <button class="commentDelete">X</button>
+      </form>
+      @php } @endphp
     </div>
 
     <div class="pull-left comment">{{$comentario->comment}}</div>  

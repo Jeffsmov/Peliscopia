@@ -11,6 +11,15 @@ $reviewLikeCounts = (App\like::countLikes($review->id));
         <div class="row">
             <div class="col-md-12"> <a href="/perfil/{{$autor->id}}" class="stronger"><strong>{{$autor->name}}</strong></a><a href="/reseña/{{$review->id}}"><span class="more-reviews pull-right">{{$reviewFecha}}</span></a></div>
         </div>
+        @php
+        if(session('tipo')==1){
+        @endphp
+        <form action="/action/review/delete" method="post">
+            {{csrf_field()}}
+            <input type="hidden" name="id" value="{{$review->id}}">
+            <button class="reviewDelete pull-right">X</button>
+        </form>
+        @php } @endphp
     </div>
 
 

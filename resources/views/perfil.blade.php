@@ -73,6 +73,16 @@
                         @php } @endphp
                     </ul>
                 </div>
+                  @php
+                  if(session('tipo')==1 && session('id')!=$user->id){
+                  @endphp
+                  <br>
+                  <form action="/action/user/delete" method="post">
+                    {{csrf_field()}}
+                    <input type="hidden" value="{{$user->id}}" name="id">
+                    <button class="user-Delete">BAN</button>
+                  </form>
+                  @php } @endphp
             </div>
 
         <!-- Perfil de Usuario -->

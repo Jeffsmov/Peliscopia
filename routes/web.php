@@ -368,6 +368,31 @@ use Illuminate\Http\Response;
         }
     });
 
+///action/review/delete
+
+    Route::post('/action/comment/delete', function(Request $request) {
+        if (session()->has('id') && session('tipo')==1) {
+            $id = $request->input('id');
+            comentario::find($id)->delete();
+        }
+        return redirect('/');
+    });
+
+    Route::post('/action/user/delete', function(Request $request) {
+        if (session()->has('id') && session('tipo')==1) {
+            $id = $request->input('id');
+            User::find($id)->delete();
+        }
+        return redirect('/');
+    });
+
+    Route::post('/action/review/delete', function(Request $request) {
+        if (session()->has('id') && session('tipo')==1) {
+            $id = $request->input('id');
+            review::find($id)->delete();
+        }
+        return redirect('/');
+    });
 
 //-- Get Img --//
     Route::get('/pelicula/{whichImg}/{id}', function($whichImg, $id, Response $response){
